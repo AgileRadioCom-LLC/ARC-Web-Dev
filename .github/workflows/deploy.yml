@@ -35,4 +35,4 @@ jobs:
             --exclude='.gitignore' \
             --exclude='package*.json' \
             --exclude='README.md' \
-            ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/public_html/revamp/
+            ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/public_html/revamp/
