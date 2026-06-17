@@ -33,13 +33,17 @@ import Layout from '../layouts/Layout.astro';
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <!-- Wide card: image left, details right on large screens -->
-    <div class="product-card group grid grid-cols-1 lg:grid-cols-2 rounded-2xl border border-arc-accent/30 bg-arc-dark overflow-hidden hover:border-arc-accent/60 transition-all duration-300"
+    <div class="grid grid-cols-1 lg:grid-cols-2 rounded-2xl border border-arc-accent/30 bg-arc-dark overflow-hidden"
          data-aos="fade-up">
       <!-- Video -->
-      <div class="h-64 lg:h-auto bg-gradient-to-br from-arc-blue/30 to-arc-dark flex items-center justify-center overflow-hidden">
-        <img src="images/product-arcsynercom.jpg" alt="ArcSynerCom™ Deterministic Edge Node hardware board"
-             class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" loading="lazy"
-             onerror="this.parentElement.innerHTML='<div class=\'product-placeholder h-full\'><span class=\'product-icon\'>⬡</span></div>'" />
+      <div class="relative h-64 lg:h-auto bg-arc-dark overflow-hidden">
+        <iframe
+          src="https://www.youtube.com/embed/CysLBzzRTkg"
+          title="ArcSynerCom™ Deterministic Edge Node"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="absolute inset-0 w-full h-full border-0">
+        </iframe>
       </div>
 
       <div class="p-8 lg:p-10">
