@@ -1,0 +1,273 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="About Us | AgileRadioCom"
+  description="Meet the AgileRadioCom team — experts in deterministic wireless systems, SDR, autonomous platforms, and mission-critical communications."
+  bodyClass="bg-arc-dark text-white font-sans antialiased"
+>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE HERO — compact banner (interior pages don't need full-height hero)
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="relative pt-16 pb-16 bg-arc-dark overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-arc-accent/5 blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-accent/30 to-transparent"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-5" data-aos="fade-up" data-aos-delay="80">
+      About <span class="text-arc-accent">AgileRadioCom</span>
+    </h1>
+    <p class="text-arc-muted text-lg max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="160">
+      A multidisciplinary team converting cutting-edge research in deterministic wireless systems
+      into practical, deployable platforms for the autonomous age.
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     COMPANY OVERVIEW — mission statement and core competencies side-by-side
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 bg-arc-navy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Mission description -->
+      <div data-aos="fade-right">
+        <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-4">Our Mission</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-6">
+          Turning Research Into<br/><span class="text-arc-accent">Real-World Deployments</span>
+        </h2>
+        <p class="text-arc-muted leading-relaxed mb-4">
+          AgileRadioCom is headed by a team with expertise in ddeterministic wireless systems, 
+          Software-Defined Radio, autonomous platforms, and mission-critical communications. Our 
+          leadership and engineering team bring hands-on experience designing, integrating, and 
+          deploying advanced wireless technologies where predictability, resilience, and performance 
+          are essential.
+        </p>
+        <p class="text-arc-muted leading-relaxed">
+          We combine backgrounds across RF engineering, embedded systems, AI-driven control, and 
+          autonomous system integration, enabling us to translate advanced research into deployable 
+          platforms for real-world operations. Our focus is execution, building systems that perform 
+          reliably in complex, high-consequence environments.
+        </p>
+      </div>
+
+      <!-- Core competency grid (2×4) -->
+      <div data-aos="fade-left" data-aos-delay="100">
+        <p class="text-arc-muted text-sm font-semibold tracking-widest uppercase mb-5">Core Competencies</p>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="competency-block"><span class="dot"></span>RF Engineering</div>
+          <div class="competency-block"><span class="dot"></span>Embedded Systems</div>
+          <div class="competency-block"><span class="dot"></span>AI-Driven Control</div>
+          <div class="competency-block"><span class="dot"></span>Autonomous Integration</div>
+          <div class="competency-block"><span class="dot"></span>Software-Defined Radio</div>
+          <div class="competency-block"><span class="dot"></span>Mission-Critical Comms</div>
+          <div class="competency-block"><span class="dot"></span>FPGA &amp; Hardware Design</div>
+          <div class="competency-block"><span class="dot"></span>Cybersecurity &amp; TPM</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     LEADERSHIP TEAM — responsive grid of headshot cards
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 bg-arc-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-14" data-aos="fade-up">
+      <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-3">People</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Leadership Team</h2>
+    </div>
+
+    <!-- 1-col → 2-col → 4-col grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- CEO -->
+      <div class="team-card" data-aos="fade-up" data-aos-delay="0">
+      <a href="https://www.linkedin.com/in/sisay-tadesse-arzo-ph-d-02723a33" target="_blank">
+        <div class="team-avatar-wrap">
+          <img src="images/sisay.jpg" alt="Dr. Sisay Tadesse Arzo — CEO and Founder"
+               class="team-avatar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-initials hidden">ST</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-bold text-white text-base mb-1">Dr. Sisay Tadesse Arzo</h3>
+          <p class="text-arc-accent text-xs font-semibold tracking-wide uppercase">CEO &amp; Founder</p>
+        </div>
+        </a>
+      </div>
+
+      <!-- COO -->
+      <div class="team-card" data-aos="fade-up" data-aos-delay="60">
+      <a href="https://www.linkedin.com/in/eyael-solomon-emiru-3142ab267/" target="_blank">
+        <div class="team-avatar-wrap">
+          <img src="images/EyaPic.png" alt="Eyael Solomon Emiru — COO and Co-founder"
+               class="team-avatar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-initials hidden">ES</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-bold text-white text-base mb-1">Eyael Solomon Emiru</h3>
+          <p class="text-arc-accent text-xs font-semibold tracking-wide uppercase">COO &amp; Co-founder</p>
+        </div>
+        </a>
+      </div>
+
+      <!-- Wireless AI Chief Scientist -->
+      <div class="team-card" data-aos="fade-up" data-aos-delay="120">
+      <a href="https://www.linkedin.com/in/petro-mushidi-tshakwanda-ph-d-b330b532/" target="_blank">
+        <div class="team-avatar-wrap">
+          <img src="images/petro.png" alt="Dr. Petro Mushidi Tshakwanda — Wireless AI Chief Scientist"
+               class="team-avatar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-initials hidden">PT</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-bold text-white text-base mb-1">Dr. Petro Mushidi Tshakwanda</h3>
+          <p class="text-arc-accent text-xs font-semibold tracking-wide uppercase">Wireless AI Chief Scientist &amp; R&amp;D Lead</p>
+        </div>
+        </a>
+      </div>
+
+      <!-- AI Chief Scientist -->
+      <div class="team-card" data-aos="fade-up" data-aos-delay="180">
+      <a href="https://www.linkedin.com/in/mesaybejiga/" target="_blank">
+        <div class="team-avatar-wrap">
+          <img src="images/mesay.jpg" alt="Dr. Mesay Belete Bejiga — AI Chief Scientist"
+               class="team-avatar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-initials hidden">MB</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-bold text-white text-base mb-1">Dr. Mesay Belete Bejiga</h3>
+          <p class="text-arc-accent text-xs font-semibold tracking-wide uppercase">AI Chief Scientist &amp; R&amp;D Lead</p>
+        </div>
+        </a>
+      </div>
+
+      <!-- Material & Micro Fabrication Expert -->
+      <div class="team-card" data-aos="fade-up" data-aos-delay="0">
+      <a href="https://www.linkedin.com/in/teferi-sitotaw-yallew-ph-d-55382a15b/" target="_blank">
+        <div class="team-avatar-wrap">
+          <img src="images/teferi.jpg" alt="Dr. Teferi Sitotaw Yallew — Material and Micro Fabrication Expert"
+               class="team-avatar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-initials hidden">TY</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-bold text-white text-base mb-1">Dr. Teferi Sitotaw Yallew</h3>
+          <p class="text-arc-accent text-xs font-semibold tracking-wide uppercase">Material &amp; Micro Fabrication Expert</p>
+        </div>
+        </a>
+      </div>
+
+      <!-- Wireless ISAC Engineer -->
+      <div class="team-card" data-aos="fade-up" data-aos-delay="60">
+      <a href="https://www.linkedin.com/in/jack-uhl-076815348/" target="_blank">
+        <div class="team-avatar-wrap">
+          <img src="images/jack.png" alt="Jack Uhl — Wireless ISAC and TSN Implementation Engineer"
+               class="team-avatar" style="object-position: center center;" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-initials hidden">JU</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-bold text-white text-base mb-1">Jack Uhl</h3>
+          <p class="text-arc-accent text-xs font-semibold tracking-wide uppercase">Wireless ISAC &amp; TSN Implementation Engineer</p>
+        </div>
+        </a>
+      </div>
+
+      <!-- SDR / Cybersecurity Engineer -->
+      <div class="team-card" data-aos="fade-up" data-aos-delay="120">
+      <a href="https://www.linkedin.com/in/rahulvenkatagiri/" target="_blank">
+        <div class="team-avatar-wrap">
+          <img src="images/rahul.jpg" alt="Rahul Giri — SDR Integration and Hardware Cybersecurity Engineer"
+               class="team-avatar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="avatar-initials hidden">RG</div>
+        </div>
+        <div class="p-5">
+          <h3 class="font-display font-bold text-white text-base mb-1">Rahul Giri</h3>
+          <p class="text-arc-accent text-xs font-semibold tracking-wide uppercase">SDR Integration &amp; Hardware Cybersecurity Engineer</p>
+        </div>
+        </a>
+      </div>
+
+    </div><!-- /team grid -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     ADVISORY BOARD
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-16 bg-arc-navy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12" data-aos="fade-up">
+      <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-3">Guidance</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Advisory Board</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+
+      <!-- Advisor: Clint Ballinger -->
+      <div class="advisory-card" data-aos="fade-up" data-aos-delay="0">
+      <a href="https://www.linkedin.com/in/clint-ballinger/" target="_blank">
+        <div class="w-14 h-14 rounded-full bg-arc-blue/60 border border-arc-blue flex items-center justify-center text-sm font-bold text-arc-accent flex-shrink-0 overflow-hidden">
+          <img src="images/clint.png" alt="Clint Ballinger headshot"
+               class="w-full h-full object-cover" loading="lazy"
+               onerror="this.style.display='none';this.parentElement.textContent='CB';" />
+        </div>
+        <div>
+          <p class="font-display font-bold text-white">Clint Ballinger</p>
+          <p class="text-arc-muted text-sm mt-0.5">Professor in the Department of Mechanical, Aerospace, and Nuclear Engineering (MANE), Rensselaer Polytechnic Institute</p>
+        </div>
+        </a>
+      </div>
+
+      <!-- Advisor: Michael Devetsikiotis -->
+      <div class="advisory-card" data-aos="fade-up" data-aos-delay="80">
+      <a href="https://www.linkedin.com/in/michael-devetsikiotis-67a7258/" target="_blank">
+        <div class="w-14 h-14 rounded-full bg-arc-blue/60 border border-arc-blue flex items-center justify-center text-sm font-bold text-arc-accent flex-shrink-0 overflow-hidden">
+          <img src="images/michael.png" alt="Michael Devetsikiotis headshot"
+               class="w-full h-full object-cover" loading="lazy"
+               onerror="this.style.display='none';this.parentElement.textContent='MD';" />
+        </div>
+        <div>
+          <p class="font-display font-bold text-white">Michael Devetsikiotis</p>
+          <p class="text-arc-muted text-sm mt-0.5">Professor of Electrical and Computer Engineering, The University of New Mexico</p>
+        </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     CTA STRIP — guide visitors to products or contact
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-16 bg-arc-dark border-t border-arc-blue/20">
+  <div class="max-w-3xl mx-auto px-4 text-center" data-aos="fade-up">
+    <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-4">Ready to work with us?</h2>
+    <p class="text-arc-muted mb-8">Explore our product portfolio or get in touch to schedule a demo with the team.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/products" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-arc-accent text-arc-dark font-bold hover:bg-white hover:scale-105 transition-all duration-200">
+        View Products
+      </a>
+      <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-arc-accent/40 text-arc-accent font-semibold hover:bg-arc-accent/10 transition-all duration-200">
+        Contact Us
+      </a>
+    </div>
+  </div>
+</section>
+
+</Layout>

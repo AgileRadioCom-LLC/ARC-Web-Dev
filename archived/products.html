@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AgileRadioCom products — deterministic SDR platforms for autonomous drones, robotic fleets, defense, and mission-critical wireless operations." />
+  <title>Our Products | AgileRadioCom</title>
+  <link rel="icon" href="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2025/10/cropped-Update-the-AgileRadi.png?fit=270%2C270&ssl=1" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            arc: { dark:'#080d14', navy:'#0d1b2a', blue:'#1a3a5c', accent:'#00ff88', bright:'#34d399', gold:'#f59e0b', muted:'#94a3b8' }
+          },
+          fontFamily: {
+            sans:    ['Inter','ui-sans-serif','system-ui'],
+            display: ['Space Grotesk','Inter','ui-sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-arc-dark text-white font-sans antialiased">
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     NAVBAR — "Our Products" link marked active for this page
+════════════════════════════════════════════════════════════════════════════ -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+
+      <a href="index.html" class="flex items-center gap-3" aria-label="AgileRadioCom Home">
+        <!-- IMAGE NEEDED: images/logo.png -->
+        <img src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2025/03/Update-the-AgileRadi.png?fit=1024%2C1024&ssl=1" alt="AgileRadioCom logo" class="h-8 md:h-10 w-auto object-contain"
+             loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="hidden items-center text-xl font-display font-black">
+          <span class="text-arc-accent">ARC</span><span class="text-white">RadioCom</span>
+        </span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-arc-muted">
+        <li><a href="index.html"    class="nav-link hover:text-arc-accent transition-colors">Home</a></li>
+        <li><a href="about.html"    class="nav-link hover:text-arc-accent transition-colors">About Us</a></li>
+        <li><a href="products.html" class="nav-link active hover:text-arc-accent transition-colors">Our Products</a></li>
+        <li><a href="news.html"     class="nav-link hover:text-arc-accent transition-colors">News &amp; Updates</a></li>
+        <li><a href="contact.html"  class="nav-link hover:text-arc-accent transition-colors">Contact Us</a></li>
+      </ul>
+
+      <a href="contact.html" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-arc-accent text-arc-dark text-sm font-semibold hover:bg-white transition-colors duration-200">
+        Schedule a Demo
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+
+      <button id="hamburger" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg border border-arc-blue/50 text-arc-muted hover:text-arc-accent hover:border-arc-accent transition-colors"
+              aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hamburger-bar block w-5 h-0.5 bg-current transition-all duration-300"></span>
+        <span class="hamburger-bar block w-5 h-0.5 bg-current transition-all duration-300"></span>
+        <span class="hamburger-bar block w-5 h-0.5 bg-current transition-all duration-300"></span>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out" aria-hidden="true">
+      <ul class="flex flex-col gap-1 pb-4 text-sm font-medium text-arc-muted border-t border-arc-blue/30 mt-2 pt-4">
+        <li><a href="index.html"    class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Home</a></li>
+        <li><a href="about.html"    class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">About Us</a></li>
+        <li><a href="products.html" class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Our Products</a></li>
+        <li><a href="news.html"     class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">News &amp; Updates</a></li>
+        <li><a href="contact.html"  class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Contact Us</a></li>
+        <li class="pt-2"><a href="contact.html" class="block text-center px-5 py-2.5 rounded-full bg-arc-accent text-arc-dark font-semibold hover:bg-white transition-colors">Schedule a Demo</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE HERO BANNER
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="relative pt-32 pb-16 bg-arc-dark overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-arc-accent/5 blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-accent/30 to-transparent"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-3" data-aos="fade-down">Product Portfolio</p>
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-5" data-aos="fade-up" data-aos-delay="80">
+      Our <span class="text-arc-accent">Products</span>
+    </h1>
+    <p class="text-arc-muted text-lg max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="160">
+      Deterministic Software-Defined Radio platforms engineered for autonomous drones,
+      robotic fleets, and mission-critical wireless operations.
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     FLAGSHIP PRODUCT — ArcSynerCom featured in a wide two-column card
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 bg-arc-navy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex items-center gap-3 mb-8" data-aos="fade-right">
+      <span class="tag tag-accent">Flagship Platform</span>
+      <div class="flex-1 h-px bg-arc-blue/40"></div>
+    </div>
+
+    <!-- Wide flagship card: image left, details right on large screens -->
+    <!-- IMAGE NEEDED: images/product-arcsynercom.jpg — SDR board photo, ~800×600px -->
+    <div class="product-card group grid grid-cols-1 lg:grid-cols-2 rounded-2xl border border-arc-accent/30 bg-arc-dark overflow-hidden hover:border-arc-accent/60 transition-all duration-300"
+         data-aos="fade-up">
+      <div class="h-64 lg:h-auto bg-gradient-to-br from-arc-blue/30 to-arc-dark flex items-center justify-center overflow-hidden">
+        <img src="images/product-arcsynercom.jpg" alt="ArcSynerCom™ Deterministic Edge Node hardware board"
+             class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" loading="lazy"
+             onerror="this.parentElement.innerHTML='<div class=\'product-placeholder h-full\'><span class=\'product-icon\'>⬡</span></div>'" />
+      </div>
+      <div class="p-8 lg:p-10">
+        <div class="flex items-start justify-between mb-4">
+          <h2 class="font-display text-2xl font-black text-white">ArcSynerCom™</h2>
+          <span class="tag tag-accent">Flagship</span>
+        </div>
+        <p class="text-arc-bright font-medium mb-3">Deterministic Edge Node</p>
+        <p class="text-arc-muted leading-relaxed mb-6">
+          Purpose-built for autonomous, industrial, and defense applications. Features hardware-based
+          precision time sync with sub-microsecond jitter, Trusted Platform Module security, integrated
+          ISAC capabilities, REST API for digital twin integration, and modular RF/FPGA design.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
+          <div class="feature-item">Sub-microsecond timing jitter</div>
+          <div class="feature-item">Trusted Platform Module security</div>
+          <div class="feature-item">Integrated ISAC capabilities</div>
+          <div class="feature-item">REST API for digital twin</div>
+          <div class="feature-item">Modular RF &amp; FPGA design</div>
+          <div class="feature-item">6G testbed compatible</div>
+        </div>
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="use-case">Autonomous vehicles</span>
+          <span class="use-case">Drone comms</span>
+          <span class="use-case">Defense mesh radios</span>
+          <span class="use-case">Industrial automation</span>
+        </div>
+        <a href="contact.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-arc-accent text-arc-dark font-bold text-sm hover:bg-white transition-colors">
+          Request a Demo →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     REMAINING PRODUCTS — 3-column responsive grid
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 bg-arc-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex items-center gap-3 mb-10" data-aos="fade-right">
+      <p class="text-arc-muted text-sm font-semibold tracking-widest uppercase">Full Portfolio</p>
+      <div class="flex-1 h-px bg-arc-blue/40"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+      <!-- ── ArcWave — O-RAN Radio Unit ──────────────────────────────────── -->
+      <!-- IMAGE NEEDED: images/product-arcwave.jpg — O-RAN antenna/radio unit, ~600×400px -->
+      <div class="product-card group flex flex-col rounded-2xl border border-arc-blue/40 bg-arc-navy overflow-hidden hover:border-arc-accent/50 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="0">
+        <div class="h-48 bg-gradient-to-br from-arc-blue/20 to-arc-dark flex items-center justify-center overflow-hidden">
+          <img src="images/product-arcwave.jpg" alt="ArcWave™ O-RAN Radio Unit"
+               class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" loading="lazy"
+               onerror="this.parentElement.innerHTML='<div class=\'product-placeholder\'><span class=\'product-icon\'>◈</span></div>'" />
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-display text-lg font-bold text-white">ArcWave™</h3>
+            <span class="tag tag-blue">O-RAN</span>
+          </div>
+          <p class="text-arc-muted text-sm font-medium mb-2">O-RAN Radio Unit</p>
+          <p class="text-arc-muted/80 text-sm leading-relaxed mb-4 flex-1">
+            Designed for O-RAN architectures with AI-based optimizations, multi-vendor
+            interoperability, and multi-band support for next-generation 5G/6G networks.
+          </p>
+          <ul class="space-y-1.5 mb-5">
+            <li class="feature-item">O-RAN standards compliant</li>
+            <li class="feature-item">AI-based network adaptation</li>
+            <li class="feature-item">Multi-vendor interoperability</li>
+            <li class="feature-item">Multi-band support</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="use-case">5G/6G Networks</span>
+            <span class="use-case">Small cells</span>
+            <span class="use-case">Rural broadband</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ArcLink — O-RAN Distributed Unit ───────────────────────────── -->
+      <!-- IMAGE NEEDED: images/product-arclink.jpg — network DU/switch hardware, ~600×400px -->
+      <div class="product-card group flex flex-col rounded-2xl border border-arc-blue/40 bg-arc-navy overflow-hidden hover:border-arc-accent/50 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="80">
+        <div class="h-48 bg-gradient-to-br from-arc-blue/25 to-arc-dark flex items-center justify-center overflow-hidden">
+          <img src="images/product-arclink.jpg" alt="ArcLink™ O-RAN Distributed Unit"
+               class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" loading="lazy"
+               onerror="this.parentElement.innerHTML='<div class=\'product-placeholder\'><span class=\'product-icon\'>◇</span></div>'" />
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-display text-lg font-bold text-white">ArcLink™</h3>
+            <span class="tag tag-blue">O-RAN</span>
+          </div>
+          <p class="text-arc-muted text-sm font-medium mb-2">O-RAN Distributed Unit</p>
+          <p class="text-arc-muted/80 text-sm leading-relaxed mb-4 flex-1">
+            High-performance network control with deterministic wireless transport, time-aware
+            shaping, and real-time packet inspection for O-RAN environments.
+          </p>
+          <ul class="space-y-1.5 mb-5">
+            <li class="feature-item">Deterministic wireless transport</li>
+            <li class="feature-item">Time-aware traffic shaping</li>
+            <li class="feature-item">Real-time packet inspection</li>
+            <li class="feature-item">TPM cybersecurity</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="use-case">Edge data centers</span>
+            <span class="use-case">Wireless backhaul</span>
+            <span class="use-case">Private networks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ArcPrimeWave — Telecom & Open RAN ──────────────────────────── -->
+      <!-- IMAGE NEEDED: images/product-arcprimewave.jpg — telecom tower/open RAN infra, ~600×400px -->
+      <div class="product-card group flex flex-col rounded-2xl border border-arc-blue/40 bg-arc-navy overflow-hidden hover:border-arc-accent/50 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="160">
+        <div class="h-48 bg-gradient-to-br from-arc-blue/20 to-arc-dark flex items-center justify-center overflow-hidden">
+          <img src="images/product-arcprimewave.jpg" alt="ArcPrimeWave™ Telecom and Open RAN series"
+               class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" loading="lazy"
+               onerror="this.parentElement.innerHTML='<div class=\'product-placeholder\'><span class=\'product-icon\'>◉</span></div>'" />
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-display text-lg font-bold text-white">ArcPrimeWave™</h3>
+            <span class="tag tag-gold">Telecom</span>
+          </div>
+          <p class="text-arc-muted text-sm font-medium mb-2">Telecom &amp; Open RAN Series</p>
+          <p class="text-arc-muted/80 text-sm leading-relaxed mb-4 flex-1">
+            Carrier-grade performance for large-scale telecom networks with multi-vendor
+            integration, low-latency communication, and scalable architecture.
+          </p>
+          <ul class="space-y-1.5 mb-5">
+            <li class="feature-item">Carrier-grade performance</li>
+            <li class="feature-item">Multi-vendor integration</li>
+            <li class="feature-item">Low-latency communication</li>
+            <li class="feature-item">Scalable architecture</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="use-case">Telecom networks</span>
+            <span class="use-case">Open RAN</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ArcSafeLink — IoT Safety-Critical ──────────────────────────── -->
+      <!-- IMAGE NEEDED: images/product-arcsafelink.jpg — IoT sensors/factory floor, ~600×400px -->
+      <div class="product-card group flex flex-col rounded-2xl border border-arc-blue/40 bg-arc-navy overflow-hidden hover:border-arc-accent/50 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="0">
+        <div class="h-48 bg-gradient-to-br from-arc-blue/20 to-arc-dark flex items-center justify-center overflow-hidden">
+          <img src="images/product-arcsafelink.jpg" alt="ArcSafeLink™ IoT safety-critical wireless"
+               class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" loading="lazy"
+               onerror="this.parentElement.innerHTML='<div class=\'product-placeholder\'><span class=\'product-icon\'>◌</span></div>'" />
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-display text-lg font-bold text-white">ArcSafeLink™</h3>
+            <span class="tag tag-blue">IoT</span>
+          </div>
+          <p class="text-arc-muted text-sm font-medium mb-2">IoT Safety-Critical Applications</p>
+          <p class="text-arc-muted/80 text-sm leading-relaxed mb-4 flex-1">
+            Wire-like reliability for wireless IoT networks. Deterministic performance with
+            bounded latency and AI-driven fault detection for safety-critical deployments.
+          </p>
+          <ul class="space-y-1.5 mb-5">
+            <li class="feature-item">Wire-like wireless reliability</li>
+            <li class="feature-item">Bounded latency guarantee</li>
+            <li class="feature-item">AI-driven fault detection</li>
+            <li class="feature-item">Deterministic scheduling</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="use-case">Autonomous vehicles</span>
+            <span class="use-case">Industrial IoT</span>
+            <span class="use-case">Smart cities</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ArcSecureCom — Military & Private 5G/6G ────────────────────── -->
+      <!-- IMAGE NEEDED: images/product-arcsecurecom.jpg — military/tactical radio, ~600×400px -->
+      <div class="product-card group flex flex-col rounded-2xl border border-arc-blue/40 bg-arc-navy overflow-hidden hover:border-arc-accent/50 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="80">
+        <div class="h-48 bg-gradient-to-br from-arc-blue/20 to-arc-dark flex items-center justify-center overflow-hidden">
+          <img src="images/product-arcsecurecom.jpg" alt="ArcSecureCom™ military and private 5G/6G secure radio"
+               class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" loading="lazy"
+               onerror="this.parentElement.innerHTML='<div class=\'product-placeholder\'><span class=\'product-icon\'>◈</span></div>'" />
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-display text-lg font-bold text-white">ArcSecureCom™</h3>
+            <span class="tag tag-gold">Defense</span>
+          </div>
+          <p class="text-arc-muted text-sm font-medium mb-2">Military &amp; Private 5G/6G</p>
+          <p class="text-arc-muted/80 text-sm leading-relaxed mb-4 flex-1">
+            Designed for defense applications requiring secure, jam-resistant communication
+            with AI-based fault detection and dynamic spectrum hopping.
+          </p>
+          <ul class="space-y-1.5 mb-5">
+            <li class="feature-item">Spectrum hopping</li>
+            <li class="feature-item">Jam-resistant design</li>
+            <li class="feature-item">AI-based fault detection</li>
+            <li class="feature-item">Tactical mesh networking</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="use-case">Tactical radios</span>
+            <span class="use-case">Private military</span>
+            <span class="use-case">Battlefield comms</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ArcAeroConnect — Aerospace & Future 5G/6G ──────────────────── -->
+      <!-- IMAGE NEEDED: images/product-arcaeroconnect.jpg — aerospace/satellite/drone swarm, ~600×400px -->
+      <div class="product-card group flex flex-col rounded-2xl border border-arc-blue/40 bg-arc-navy overflow-hidden hover:border-arc-accent/50 transition-all duration-300"
+           data-aos="fade-up" data-aos-delay="160">
+        <div class="h-48 bg-gradient-to-br from-arc-blue/30 to-arc-dark flex items-center justify-center overflow-hidden">
+          <img src="images/product-arcaeroconnect.jpg" alt="ArcAeroConnect™ aerospace and drone swarm comms"
+               class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" loading="lazy"
+               onerror="this.parentElement.innerHTML='<div class=\'product-placeholder\'><span class=\'product-icon\'>◎</span></div>'" />
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-display text-lg font-bold text-white">ArcAeroConnect™</h3>
+            <span class="tag tag-accent">Aerospace</span>
+          </div>
+          <p class="text-arc-muted text-sm font-medium mb-2">Aerospace &amp; Future 5G/6G</p>
+          <p class="text-arc-muted/80 text-sm leading-relaxed mb-4 flex-1">
+            Built for aerospace and satellite comms with atomic-level timing precision, NTN
+            satellite integration, and Doppler adaptability for drone swarms.
+          </p>
+          <ul class="space-y-1.5 mb-5">
+            <li class="feature-item">Atomic-level timing precision</li>
+            <li class="feature-item">NTN satellite integration</li>
+            <li class="feature-item">Doppler adaptability</li>
+            <li class="feature-item">Drone swarm coordination</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="use-case">Satellite comms</span>
+            <span class="use-case">Aerospace</span>
+            <span class="use-case">Drone swarms</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /product grid -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     CTA STRIP — push visitors toward contacting the team
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-16 bg-arc-navy border-t border-arc-blue/20">
+  <div class="max-w-3xl mx-auto px-4 text-center" data-aos="fade-up">
+    <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
+      Not sure which product fits your mission?
+    </h2>
+    <p class="text-arc-muted mb-8">
+      Our team will help you identify the right platform for your RF environment and operational requirements.
+    </p>
+    <a href="contact.html" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-arc-accent text-arc-dark font-bold hover:bg-white hover:scale-105 transition-all duration-200">
+      Schedule a Consultation
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════════════════════ -->
+<footer class="bg-arc-dark border-t border-arc-blue/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+      <div>
+        <!-- IMAGE NEEDED: images/logo.png -->
+        <img src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2025/03/Update-the-AgileRadi.png?fit=1024%2C1024&ssl=1" alt="AgileRadioCom" class="h-8 w-auto object-contain mb-4"
+             loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <span class="hidden font-display text-xl font-black"><span class="text-arc-accent">ARC</span>RadioCom</span>
+        <p class="text-arc-muted text-sm leading-relaxed mt-2 max-w-xs">
+          Innovative SDR Solutions for Your Business. Deterministic wireless technology for the autonomous world.
+        </p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm uppercase tracking-widest mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html"    class="footer-link">About Us</a></li>
+          <li><a href="products.html" class="footer-link">Our Products</a></li>
+          <li><a href="news.html"     class="footer-link">News &amp; Updates</a></li>
+          <li><a href="contact.html"  class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold text-sm uppercase tracking-widest mb-4">Connect</h4>
+        <div class="flex gap-3">
+          <a href="https://x.com/Agileradiocom" class="social-icon" aria-label="Twitter/X" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61562841189659" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.linkedin.com/company/agileradiocom-llc/posts/?feedView=all" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.youtube.com/@AGILERADIOCOMLLC" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-arc-blue/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-arc-muted/60 text-xs">
+      <p>© 2026 AgileRadioCom. All rights reserved.</p>
+      <p>Built on <span class="text-arc-accent font-semibold">D-SDR™</span> Technology</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

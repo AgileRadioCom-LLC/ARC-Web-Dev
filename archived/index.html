@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AgileRadioCom — AI-driven ArcSynerCom™ platform for ultra-reliable, low-latency wireless control of drones and robotic fleets." />
+  <title>AgileRadioCom | Innovative Wireless Solutions</title>
+  <!-- Favicon -->
+  <link rel="icon" href="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2025/10/cropped-Update-the-AgileRadi.png?fit=270%2C270&ssl=1" />
+
+  <!-- Google Fonts: Inter + Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            arc: {
+              dark:   '#080d14',
+              navy:   '#0d1b2a',
+              blue:   '#1a3a5c',
+              accent: '#00ff88',
+              bright: '#34d399',
+              gold:   '#f59e0b',
+              muted:  '#94a3b8',
+              green:  '#00cc6a',
+            }
+          },
+          fontFamily: {
+            sans:    ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['Space Grotesk', 'Inter', 'ui-sans-serif'],
+          },
+          backgroundImage: {
+            'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300ff88' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS — Animate On Scroll -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<!-- Page background is the brand green; dark sections float as cards on top -->
+<body class="text-white font-sans antialiased" style="background-color: #02914c;">
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     NAVBAR — full-width dark bar at top of the page.
+════════════════════════════════════════════════════════════════════════════ -->
+<header id="navbar" class="relative bg-arc-dark border-b border-arc-blue/30">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20 md:h-28">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3" aria-label="AgileRadioCom Home">
+        <img src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2025/03/Update-the-AgileRadi.png?fit=1024%2C1024&ssl=1" alt="AgileRadioCom logo" class="h-24 md:h-30 w-auto object-contain"
+             loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <span class="hidden items-center text-xl font-display font-black">
+          <span class="text-arc-accent">ARC</span><span class="text-white">RadioCom</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-arc-muted">
+        <li><a href="index.html"    class="nav-link active hover:text-arc-accent transition-colors">Home</a></li>
+        <li><a href="about.html"    class="nav-link hover:text-arc-accent transition-colors">About Us</a></li>
+        <li><a href="products.html" class="nav-link hover:text-arc-accent transition-colors">Our Products</a></li>
+        <li><a href="news.html"     class="nav-link hover:text-arc-accent transition-colors">News &amp; Updates</a></li>
+        <li><a href="contact.html"  class="nav-link hover:text-arc-accent transition-colors">Contact Us</a></li>
+      </ul>
+
+      <!-- Desktop CTA -->
+      <a href="contact.html" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-arc-accent text-arc-dark text-sm font-semibold hover:bg-white transition-colors duration-200">
+        Schedule a Demo
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-lg border border-arc-blue/50 text-arc-muted hover:text-arc-accent hover:border-arc-accent transition-colors"
+              aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hamburger-bar block w-5 h-0.5 bg-current transition-all duration-300"></span>
+        <span class="hamburger-bar block w-5 h-0.5 bg-current transition-all duration-300"></span>
+        <span class="hamburger-bar block w-5 h-0.5 bg-current transition-all duration-300"></span>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out" aria-hidden="true">
+      <ul class="flex flex-col gap-1 pb-4 text-sm font-medium text-arc-muted border-t border-arc-blue/30 mt-2 pt-4">
+        <li><a href="index.html"    class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Home</a></li>
+        <li><a href="about.html"    class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">About Us</a></li>
+        <li><a href="products.html" class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Our Products</a></li>
+        <li><a href="news.html"     class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">News &amp; Updates</a></li>
+        <li><a href="contact.html"  class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Contact Us</a></li>
+        <li class="pt-2">
+          <a href="contact.html" class="block text-center px-5 py-2.5 rounded-full bg-arc-accent text-arc-dark font-semibold hover:bg-white transition-colors">Schedule a Demo</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     MAIN — sections float as dark rounded cards on the green page background.
+     The gap between cards lets the green show through.
+════════════════════════════════════════════════════════════════════════════ -->
+<main class="px-3 sm:px-5 lg:px-8 py-4 flex flex-col gap-4">
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       HERO — dark card with grid pattern + radial glow.
+  ─────────────────────────────────────────────────────────────────────────-->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-arc-dark bg-grid-pattern rounded-2xl">
+
+    <!-- Decorative radial glow (animated in style.css) -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[600px] h-[600px] rounded-full bg-arc-accent/5 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <!-- Eyebrow pill label -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-arc-accent/30 bg-arc-accent/10 text-arc-accent text-xs font-semibold tracking-widest uppercase mb-6"
+           data-aos="fade-down" data-aos-duration="600">
+        <span class="w-1.5 h-1.5 rounded-full bg-arc-accent animate-pulse"></span>
+        Innovative Wireless Solutions
+      </div>
+
+      <!-- Main headline -->
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-6"
+          data-aos="fade-up" data-aos-delay="100">
+        Innovative<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-arc-accent to-arc-bright">Wireless Solutions</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="text-lg sm:text-xl md:text-2xl text-arc-muted font-light max-w-2xl mx-auto mb-4"
+         data-aos="fade-up" data-aos-delay="200">
+        AgileRadioCom delivers cutting-edge SDR technology.
+      </p>
+
+      <!-- Body description -->
+      <p class="text-base sm:text-lg text-arc-muted/80 max-w-2xl mx-auto mb-10 leading-relaxed"
+         data-aos="fade-up" data-aos-delay="300">
+        Our AI-driven <strong class="text-arc-bright font-semibold">ArcSynerCom™</strong> platform guarantees
+        ultra-reliable, low-latency wireless control, enabling drones and robotic fleets to perform with
+        unmatched precision — where conventional networks fail.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+        <a href="contact.html"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-arc-accent text-arc-dark text-base font-bold hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-arc-accent/20">
+          Schedule A Demo
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a href="products.html"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-arc-accent/40 text-arc-accent text-base font-semibold hover:bg-arc-accent/10 hover:border-arc-accent transition-all duration-200">
+          Explore Products
+        </a>
+      </div>
+
+      <!-- Scroll-down indicator (fades out on scroll via JS) -->
+      <div class="mt-20 flex flex-col items-center gap-2 text-arc-muted/50 text-xs" data-aos="fade-up" data-aos-delay="800">
+        <span class="tracking-widest uppercase">Scroll</span>
+        <div class="w-px h-10 bg-gradient-to-b from-arc-muted/40 to-transparent"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       IMAGE GALLERY SLIDESHOW — contained frame with prev/next arrows + dots.
+       Five photos rotate every 5 s; arrows allow manual navigation.
+       Managed by js/main.js section 7.
+  ─────────────────────────────────────────────────────────────────────────-->
+  <section id="gallery" class="bg-arc-dark rounded-2xl overflow-hidden py-8 sm:py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Framed slider container -->
+      <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/40" style="height: clamp(220px, 44vw, 520px);">
+
+        <!-- Slides -->
+        <div id="gallery-slideshow" class="absolute inset-0">
+          <img class="gallery-slide active" src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/Drone_Website.png?resize=1024%2C683&ssl=1"  alt="ARC Drone Technology"  loading="lazy" />
+          <img class="gallery-slide"        src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/ARC_DT-2.png?resize=1024%2C605&ssl=1"         alt="ARC DT Platform"       loading="lazy" />
+          <img class="gallery-slide"        src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/ARC_ENG-1.png?resize=1024%2C577&ssl=1"        alt="ARC Engineering"       loading="lazy" />
+          <img class="gallery-slide"        src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/ARC-TSN-1.png?resize=1024%2C578&ssl=1"        alt="ARC TSN System"        loading="lazy" />
+          <img class="gallery-slide"        src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/Swarm_ARC_V2-3.jpg?resize=1024%2C962&ssl=1"   alt="ARC Swarm Technology"  loading="lazy" />
+        </div>
+
+        <!-- Prev arrow -->
+        <button id="gallery-prev" aria-label="Previous slide"
+                class="gallery-arrow absolute left-3 top-1/2 -translate-y-1/2 z-20">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <!-- Next arrow -->
+        <button id="gallery-next" aria-label="Next slide"
+                class="gallery-arrow absolute right-3 top-1/2 -translate-y-1/2 z-20">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <!-- Dot indicators -->
+        <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+          <button class="gallery-dot active" aria-label="Slide 1"></button>
+          <button class="gallery-dot"        aria-label="Slide 2"></button>
+          <button class="gallery-dot"        aria-label="Slide 3"></button>
+          <button class="gallery-dot"        aria-label="Slide 4"></button>
+          <button class="gallery-dot"        aria-label="Slide 5"></button>
+        </div>
+      </div><!-- /framed slider -->
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       WHY AGILERADIOCOM — value proposition card.
+  ─────────────────────────────────────────────────────────────────────────-->
+  <section id="why" class="py-24 bg-arc-navy relative overflow-hidden rounded-2xl">
+
+    <!-- Top gradient divider line -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-accent/40 to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section header -->
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-3">Why Choose Us</p>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          Why <span class="text-arc-accent">AgileRadioCom</span>?
+        </h2>
+        <p class="text-arc-muted max-w-xl mx-auto text-lg">
+          Built for environments where conventional wireless networks can't keep up.
+        </p>
+      </div>
+
+      <!-- Three value-prop cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Card 1: Unmatched Reliability -->
+        <div class="value-card p-8 rounded-2xl border border-arc-blue/40 bg-arc-dark/60"
+             data-aos="fade-up" data-aos-delay="0">
+          <div class="w-14 h-14 rounded-xl bg-arc-accent/10 border border-arc-accent/20 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.249-8.25-3.286z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Unmatched Reliability</h3>
+          <p class="text-arc-muted leading-relaxed">
+            Connectivity without compromise in mission-critical environments. Our deterministic D-SDR™
+            architecture ensures packet delivery with bounded latency — even in contested RF conditions.
+          </p>
+        </div>
+
+        <!-- Card 2: AI-Powered Performance -->
+        <div class="value-card p-8 rounded-2xl border border-arc-accent/30 bg-arc-dark/60"
+             data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 rounded-xl bg-arc-accent/15 border border-arc-accent/30 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">AI-Powered Performance</h3>
+          <p class="text-arc-muted leading-relaxed">
+            Real-time network optimization and predictive management. Our AI layer continuously monitors
+            spectrum conditions and adapts routing decisions to maintain peak throughput.
+          </p>
+        </div>
+
+        <!-- Card 3: Future-Proof Connectivity -->
+        <div class="value-card p-8 rounded-2xl border border-arc-blue/40 bg-arc-dark/60"
+             data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 rounded-xl bg-arc-accent/10 border border-arc-accent/20 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Future-Proof Connectivity</h3>
+          <p class="text-arc-muted leading-relaxed">
+            Built on deterministic D-SDR™ technology that adapts to evolving RF conditions. Designed
+            today for 5G/6G architectures, UAV swarms, and the autonomous systems of tomorrow.
+          </p>
+        </div>
+      </div>
+
+      <!-- Application domain badges -->
+      <div class="mt-16 flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="300">
+        <span class="badge">UAV Swarms</span>
+        <span class="badge">Industrial Robotics</span>
+        <span class="badge">Aerospace Systems</span>
+        <span class="badge">Autonomous Operations</span>
+        <span class="badge">O-RAN / 5G / 6G</span>
+        <span class="badge">Defense Mesh</span>
+      </div>
+
+      <!-- Link to products -->
+      <div class="mt-14 text-center" data-aos="fade-up" data-aos-delay="400">
+        <a href="products.html"
+           class="inline-flex items-center gap-2 text-arc-accent font-semibold hover:text-white transition-colors text-sm">
+          View our full product portfolio
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SDR CTA — "Unlock the Power of Software-Defined Radio Solutions Today!"
+  ─────────────────────────────────────────────────────────────────────────-->
+  <section class="py-20 bg-arc-dark relative overflow-hidden rounded-2xl">
+    <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[500px] h-[500px] rounded-full bg-arc-accent/5 blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
+        Unlock the Power of<br />
+        <span class="text-arc-accent">Software-Defined Radio Solutions</span> Today!
+      </h2>
+      <a href="contact.html"
+         class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-arc-accent text-arc-dark text-base font-bold hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-arc-accent/20">
+        Get Started Today
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</main><!-- /main -->
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     FOOTER — full-width dark bar at bottom.
+════════════════════════════════════════════════════════════════════════════ -->
+<footer class="bg-arc-dark border-t border-arc-blue/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+
+      <!-- Brand -->
+      <div>
+        <img src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2025/03/Update-the-AgileRadi.png?fit=1024%2C1024&ssl=1" alt="AgileRadioCom" class="h-8 w-auto object-contain mb-4"
+             loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+        <span class="hidden font-display text-xl font-black"><span class="text-arc-accent">ARC</span>RadioCom</span>
+        <p class="text-arc-muted text-sm leading-relaxed mt-2 max-w-xs">
+          Innovative SDR Solutions for Your Business. Deterministic wireless technology
+          for the autonomous world.
+        </p>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h4 class="text-white font-semibold text-sm uppercase tracking-widest mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="about.html"    class="footer-link">About Us</a></li>
+          <li><a href="products.html" class="footer-link">Our Products</a></li>
+          <li><a href="news.html"     class="footer-link">News &amp; Updates</a></li>
+          <li><a href="contact.html"  class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div>
+        <h4 class="text-white font-semibold text-sm uppercase tracking-widest mb-4">Connect</h4>
+        <div class="flex gap-3">
+          <a href="https://x.com/Agileradiocom" class="social-icon" aria-label="Twitter/X" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61562841189659" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/agileradiocom-llc/posts/?feedView=all" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@AGILERADIOCOMLLC" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright bar -->
+    <div class="border-t border-arc-blue/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-arc-muted/60 text-xs">
+      <p>© 2026 AgileRadioCom. All rights reserved.</p>
+      <p>Built on <span class="text-arc-accent font-semibold">D-SDR™</span> Technology</p>
+    </div>
+  </div>
+</footer>
+
+<!-- AOS library -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<!-- Custom JS -->
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AgileRadioCom — Custom Stylesheet
+   Works alongside Tailwind CSS (CDN). Only styles that can't be expressed
+   cleanly with Tailwind utilities live here.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   BASE & CSS VARIABLES
+   Centralises brand colours so non-Tailwind rules stay consistent.
+────────────────────────────────────────────────────────────────────────────*/
+:root {
+  --arc-dark:   #080d14;
+  --arc-navy:   #0d1b2a;
+  --arc-blue:   #1a3a5c;
+  --arc-accent: #00ff88;
+  --arc-bright: #34d399;
+  --arc-gold:   #f59e0b;
+  --arc-muted:  #94a3b8;
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+/* Remove default focus outline; replace with branded ring */
+*:focus-visible {
+  outline: 2px solid var(--arc-accent);
+  outline-offset: 3px;
+}
+
+/* Custom scrollbar styling (WebKit) */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--arc-dark); }
+::-webkit-scrollbar-thumb {
+  background: var(--arc-blue);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--arc-accent); }
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   NAVBAR
+   Default state: fully transparent. .nav-scrolled applied by JS when
+   the page has scrolled past ~50 px, adding a backdrop blur + dark bg.
+────────────────────────────────────────────────────────────────────────────*/
+#navbar {
+  background: var(--arc-dark);
+}
+
+/* Sticky frosted-glass appearance once user scrolls */
+#navbar.nav-scrolled {
+  background: rgba(8, 13, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0, 255, 136, 0.08);
+}
+
+/* Active nav link highlight (set by JS intersection observer) */
+.nav-link.active {
+  color: var(--arc-accent);
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   HAMBURGER ANIMATION
+   Three <span> bars animate into an × when #hamburger is aria-expanded="true".
+   The JS toggles the aria-expanded attribute; CSS handles the visual change.
+────────────────────────────────────────────────────────────────────────────*/
+#hamburger[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+#hamburger[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+#hamburger[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   REUSABLE BADGE / TAG COMPONENTS
+   Used in multiple sections (value propositions, products, news cards).
+────────────────────────────────────────────────────────────────────────────*/
+
+/* Small pill badge — tech category labels in Why section */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  background: rgba(0, 255, 136, 0.06);
+  color: var(--arc-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  transition: border-color 0.2s, color 0.2s;
+}
+.badge:hover {
+  border-color: rgba(0, 255, 136, 0.5);
+  color: var(--arc-accent);
+}
+
+/* Colour variants for product / news tags */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tag-accent {
+  background: rgba(0, 255, 136, 0.12);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  color: var(--arc-accent);
+}
+.tag-blue {
+  background: rgba(26, 58, 92, 0.6);
+  border: 1px solid rgba(26, 58, 92, 1);
+  color: var(--arc-bright);
+}
+.tag-gold {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: var(--arc-gold);
+}
+
+/* Use-case pill chips inside product cards */
+.use-case {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(26, 58, 92, 0.5);
+  color: var(--arc-muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+
+/* VALUE CARDS — static display, no hover animation */
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   PRODUCT CARDS
+   Hover lifts + changes shadow to create a subtle glow.
+────────────────────────────────────────────────────────────────────────────*/
+.product-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 255, 136, 0.1);
+}
+
+/* Bullet point rows inside product feature lists */
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--arc-muted);
+}
+.feature-item::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--arc-accent);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* Fallback placeholder shown when a product image fails to load */
+.product-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26,58,92,0.5), rgba(8,13,20,0.8));
+}
+.product-placeholder.md\:h-full { height: 100%; }
+.product-icon {
+  font-size: 3rem;
+  color: rgba(0, 255, 136, 0.2);
+  user-select: none;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   TEAM CARDS
+   Consistent avatar display for leadership and advisory members.
+────────────────────────────────────────────────────────────────────────────*/
+.team-card {
+  background: var(--arc-dark);
+  border: 1px solid rgba(26, 58, 92, 0.5);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.team-card:hover {
+  border-color: rgba(0, 255, 136, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Avatar image container — square crop */
+.team-avatar-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio */
+  background: linear-gradient(135deg, var(--arc-navy), var(--arc-dark));
+  overflow: hidden;
+}
+.team-avatar {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Initials fallback shown when headshot is missing */
+.avatar-initials {
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--arc-accent);
+  background: linear-gradient(135deg, var(--arc-navy), var(--arc-dark));
+}
+
+/* Core competency pill (About section) */
+.competency-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  background: rgba(0, 255, 136, 0.05);
+  color: var(--arc-muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.competency-pill:hover {
+  border-color: rgba(0, 255, 136, 0.4);
+  color: var(--arc-accent);
+  background: rgba(0, 255, 136, 0.08);
+}
+
+/* Advisory board card row */
+.advisory-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--arc-dark);
+  border: 1px solid rgba(26, 58, 92, 0.5);
+  border-radius: 0.75rem;
+  transition: border-color 0.2s;
+}
+.advisory-card:hover {
+  border-color: rgba(0, 255, 136, 0.3);
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   NEWS CARDS
+────────────────────────────────────────────────────────────────────────────*/
+.news-card {
+  background: var(--arc-navy);
+  border: 1px solid rgba(26, 58, 92, 0.5);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.news-card:hover {
+  border-color: rgba(0, 255, 136, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0, 255, 136, 0.07);
+}
+
+/* Placeholder background when news image fails */
+.news-img-placeholder {
+  background: linear-gradient(135deg, rgba(26,58,92,0.4), rgba(8,13,20,0.9));
+}
+
+/* Clamp long article text to 3 lines (native CSS) */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   CONTACT FORM
+   Form inputs share a consistent dark-themed style with cyan focus rings.
+────────────────────────────────────────────────────────────────────────────*/
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--arc-muted);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(13, 27, 42, 0.8);
+  border: 1px solid rgba(26, 58, 92, 0.8);
+  border-radius: 0.75rem;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+}
+.form-input::placeholder { color: rgba(148, 163, 184, 0.4); }
+.form-input:focus {
+  outline: none;
+  border-color: var(--arc-accent);
+  box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.12);
+}
+
+/* Success state applied by JS after form submission */
+#form-status.status-success {
+  display: block;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  color: var(--arc-accent);
+}
+/* Error state applied by JS if validation fails */
+#form-status.status-error {
+  display: block;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   SOCIAL ICON BUTTONS
+   Used in contact section and footer.
+────────────────────────────────────────────────────────────────────────────*/
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(26, 58, 92, 0.8);
+  color: var(--arc-muted);
+  background: transparent;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.social-icon:hover {
+  color: var(--arc-accent);
+  border-color: rgba(0, 255, 136, 0.4);
+  background: rgba(0, 255, 136, 0.07);
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   FOOTER LINKS
+────────────────────────────────────────────────────────────────────────────*/
+.footer-link {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--arc-muted);
+  transition: color 0.2s;
+  padding: 0.15rem 0;
+}
+.footer-link:hover { color: var(--arc-accent); }
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   GALLERY SLIDESHOW (#gallery section)
+   Five full-width <img> tags crossfade every 5 s via JS section 7.
+────────────────────────────────────────────────────────────────────────────*/
+#gallery-slideshow {
+  position: absolute;
+  inset: 0;
+}
+.gallery-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.gallery-slide.active { opacity: 1; }
+
+/* Prev / next arrow buttons */
+.gallery-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: rgba(8, 13, 20, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.gallery-arrow:hover {
+  background: var(--arc-accent);
+  border-color: var(--arc-accent);
+  color: var(--arc-dark);
+  transform: scale(1.1);
+}
+.gallery-arrow:active { transform: scale(0.95); }
+
+/* Dot navigation buttons */
+.gallery-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, width 0.3s ease;
+}
+.gallery-dot.active {
+  background: var(--arc-accent);
+  width: 1.5rem;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   HERO GLOW PULSE
+   Subtle animated glow behind the hero headline for visual depth.
+────────────────────────────────────────────────────────────────────────────*/
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.04; transform: scale(1); }
+  50%       { opacity: 0.08; transform: scale(1.05); }
+}
+#hero .bg-arc-accent\/5 {
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   RESPONSIVE ADJUSTMENTS
+   Fine-tune layout at key breakpoints beyond what Tailwind utilities cover.
+────────────────────────────────────────────────────────────────────────────*/
+
+/* Mobile (< 640px): reduce section vertical padding slightly */
+@media (max-width: 639px) {
+  html { scroll-padding-top: 64px; }
+  .team-card { border-radius: 0.75rem; }
+}
+
+/* Tablet (640px – 1023px): ensure form inputs don't get too wide */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .form-input { font-size: 1rem; }
+}
+
+/* Large desktop (1280px+): increase hero heading size cap */
+@media (min-width: 1280px) {
+  #hero h1 { font-size: 5rem; }
+}
+
+
+/* ──────────────────────────────────────────────────────────────────────────
+   PRINT STYLES
+   Hides non-essential UI elements when the page is printed.
+────────────────────────────────────────────────────────────────────────────*/
+@media print {
+  #navbar, footer, #contact { display: none; }
+  body { background: #fff; color: #000; }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   COMPETENCY BLOCKS (About page)
+────────────────────────────────────────────────────────────────────────────*/
+.competency-block {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.6rem 0.9rem; border-radius: 0.6rem;
+  border: 1px solid rgba(26,58,92,0.7);
+  background: rgba(8,13,20,0.6);
+  color: #94a3b8; font-size: 0.8125rem; font-weight: 500;
+  transition: border-color 0.2s, color 0.2s;
+}
+.competency-block:hover { border-color: rgba(0,255,136,0.4); color: #00ff88; }
+.competency-block .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #00ff88; flex-shrink: 0; opacity: 0.7;
+}

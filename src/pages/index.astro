@@ -1,0 +1,249 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="AgileRadioCom | Innovative Wireless Solutions"
+  description="AgileRadioCom — AI-driven ArcSynerCom™ platform for ultra-reliable, low-latency wireless control of drones and robotic fleets."
+  bodyClass="text-white font-sans antialiased"
+  bodyStyle="background-color: #02914c;"
+>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     MAIN — sections float as dark rounded cards on the green page background.
+     The gap between cards lets the green show through.
+════════════════════════════════════════════════════════════════════════════ -->
+<main class="px-3 sm:px-5 lg:px-8 py-4 flex flex-col gap-4">
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       HERO — dark card with grid pattern + radial glow.
+  ─────────────────────────────────────────────────────────────────────────-->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-arc-dark bg-grid-pattern rounded-2xl">
+
+    <!-- Decorative radial glow (animated in style.css) -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[600px] h-[600px] rounded-full bg-arc-accent/5 blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <!-- Eyebrow pill label -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-arc-accent/30 bg-arc-accent/10 text-arc-accent text-xs font-semibold tracking-widest uppercase mb-6"
+           data-aos="fade-down" data-aos-duration="600">
+        <span class="w-1.5 h-1.5 rounded-full bg-arc-accent animate-pulse"></span>
+        Innovative Wireless Solutions
+      </div>
+
+      <!-- Main headline -->
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-6"
+          data-aos="fade-up" data-aos-delay="100">
+        Innovative<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-arc-accent to-arc-bright">Wireless Solutions</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="text-lg sm:text-xl md:text-2xl text-arc-muted font-light max-w-2xl mx-auto mb-4"
+         data-aos="fade-up" data-aos-delay="200">
+        AgileRadioCom delivers cutting-edge SDR technology.
+      </p>
+
+      <!-- Body description -->
+      <p class="text-base sm:text-lg text-arc-muted/80 max-w-2xl mx-auto mb-10 leading-relaxed"
+         data-aos="fade-up" data-aos-delay="300">
+        Our AI-driven <strong class="text-arc-bright font-semibold">ArcSynerCom™</strong> platform guarantees
+        ultra-reliable, low-latency wireless control, enabling drones and robotic fleets to perform with
+        unmatched precision — where conventional networks fail.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+        <a href="/contact"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-arc-accent text-arc-dark text-base font-bold hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-arc-accent/20">
+          Schedule A Demo
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a href="/products"
+           class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-arc-accent/40 text-arc-accent text-base font-semibold hover:bg-arc-accent/10 hover:border-arc-accent transition-all duration-200">
+          Explore Products
+        </a>
+      </div>
+
+      <!-- Scroll-down indicator (fades out on scroll via JS) -->
+      <div class="mt-20 flex flex-col items-center gap-2 text-arc-muted/50 text-xs" data-aos="fade-up" data-aos-delay="800">
+        <span class="tracking-widest uppercase">Scroll</span>
+        <div class="w-px h-10 bg-gradient-to-b from-arc-muted/40 to-transparent"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       IMAGE GALLERY SLIDESHOW — contained frame with prev/next arrows + dots.
+       Five photos rotate every 5 s; arrows allow manual navigation.
+       Managed by js/main.js section 7.
+  ─────────────────────────────────────────────────────────────────────────-->
+  <section id="gallery" class="bg-arc-dark rounded-2xl overflow-hidden py-8 sm:py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Framed slider container -->
+      <div class="relative rounded-xl overflow-hidden shadow-2xl shadow-black/40" style="height: clamp(220px, 44vw, 520px);">
+
+        <!-- Slides -->
+        <div id="gallery-slideshow" class="absolute inset-0">
+          <img class="gallery-slide active" src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/Drone_Website.png?resize=1024%2C683&ssl=1"  alt="ARC Drone Technology"  loading="lazy" />
+          <img class="gallery-slide"        src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/ARC_DT-2.png?resize=1024%2C605&ssl=1"         alt="ARC DT Platform"       loading="lazy" />
+          <img class="gallery-slide"        src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/ARC_ENG-1.png?resize=1024%2C577&ssl=1"        alt="ARC Engineering"       loading="lazy" />
+          <img class="gallery-slide"        src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/ARC-TSN-1.png?resize=1024%2C578&ssl=1"        alt="ARC TSN System"        loading="lazy" />
+          <img class="gallery-slide"        src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2026/01/Swarm_ARC_V2-3.jpg?resize=1024%2C962&ssl=1"   alt="ARC Swarm Technology"  loading="lazy" />
+        </div>
+
+        <!-- Prev arrow -->
+        <button id="gallery-prev" aria-label="Previous slide"
+                class="gallery-arrow absolute left-3 top-1/2 -translate-y-1/2 z-20">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <!-- Next arrow -->
+        <button id="gallery-next" aria-label="Next slide"
+                class="gallery-arrow absolute right-3 top-1/2 -translate-y-1/2 z-20">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        <!-- Dot indicators -->
+        <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+          <button class="gallery-dot active" aria-label="Slide 1"></button>
+          <button class="gallery-dot"        aria-label="Slide 2"></button>
+          <button class="gallery-dot"        aria-label="Slide 3"></button>
+          <button class="gallery-dot"        aria-label="Slide 4"></button>
+          <button class="gallery-dot"        aria-label="Slide 5"></button>
+        </div>
+      </div><!-- /framed slider -->
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       WHY AGILERADIOCOM — value proposition card.
+  ─────────────────────────────────────────────────────────────────────────-->
+  <section id="why" class="py-24 bg-arc-navy relative overflow-hidden rounded-2xl">
+
+    <!-- Top gradient divider line -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-accent/40 to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section header -->
+      <div class="text-center mb-16" data-aos="fade-up">
+        <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-3">Why Choose Us</p>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          Why <span class="text-arc-accent">AgileRadioCom</span>?
+        </h2>
+        <p class="text-arc-muted max-w-xl mx-auto text-lg">
+          Built for environments where conventional wireless networks can't keep up.
+        </p>
+      </div>
+
+      <!-- Three value-prop cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Card 1: Unmatched Reliability -->
+        <div class="value-card p-8 rounded-2xl border border-arc-blue/40 bg-arc-dark/60"
+             data-aos="fade-up" data-aos-delay="0">
+          <div class="w-14 h-14 rounded-xl bg-arc-accent/10 border border-arc-accent/20 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 10c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.249-8.25-3.286z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Unmatched Reliability</h3>
+          <p class="text-arc-muted leading-relaxed">
+            Connectivity without compromise in mission-critical environments. Our deterministic D-SDR™
+            architecture ensures packet delivery with bounded latency — even in contested RF conditions.
+          </p>
+        </div>
+
+        <!-- Card 2: AI-Powered Performance -->
+        <div class="value-card p-8 rounded-2xl border border-arc-accent/30 bg-arc-dark/60"
+             data-aos="fade-up" data-aos-delay="100">
+          <div class="w-14 h-14 rounded-xl bg-arc-accent/15 border border-arc-accent/30 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">AI-Powered Performance</h3>
+          <p class="text-arc-muted leading-relaxed">
+            Real-time network optimization and predictive management. Our AI layer continuously monitors
+            spectrum conditions and adapts routing decisions to maintain peak throughput.
+          </p>
+        </div>
+
+        <!-- Card 3: Future-Proof Connectivity -->
+        <div class="value-card p-8 rounded-2xl border border-arc-blue/40 bg-arc-dark/60"
+             data-aos="fade-up" data-aos-delay="200">
+          <div class="w-14 h-14 rounded-xl bg-arc-accent/10 border border-arc-accent/20 flex items-center justify-center mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-3">Future-Proof Connectivity</h3>
+          <p class="text-arc-muted leading-relaxed">
+            Built on deterministic D-SDR™ technology that adapts to evolving RF conditions. Designed
+            today for 5G/6G architectures, UAV swarms, and the autonomous systems of tomorrow.
+          </p>
+        </div>
+      </div>
+
+      <!-- Application domain badges -->
+      <div class="mt-16 flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="300">
+        <span class="badge">UAV Swarms</span>
+        <span class="badge">Industrial Robotics</span>
+        <span class="badge">Aerospace Systems</span>
+        <span class="badge">Autonomous Operations</span>
+        <span class="badge">O-RAN / 5G / 6G</span>
+        <span class="badge">Defense Mesh</span>
+      </div>
+
+      <!-- Link to products -->
+      <div class="mt-14 text-center" data-aos="fade-up" data-aos-delay="400">
+        <a href="/products"
+           class="inline-flex items-center gap-2 text-arc-accent font-semibold hover:text-white transition-colors text-sm">
+          View our full product portfolio
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ──────────────────────────────────────────────────────────────────────
+       SDR CTA — "Unlock the Power of Software-Defined Radio Solutions Today!"
+  ─────────────────────────────────────────────────────────────────────────-->
+  <section class="py-20 bg-arc-dark relative overflow-hidden rounded-2xl">
+    <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div class="w-[500px] h-[500px] rounded-full bg-arc-accent/5 blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+      <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
+        Unlock the Power of<br />
+        <span class="text-arc-accent">Software-Defined Radio Solutions</span> Today!
+      </h2>
+      <a href="/contact"
+         class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-arc-accent text-arc-dark text-base font-bold hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-arc-accent/20">
+        Get Started Today
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+</Layout>

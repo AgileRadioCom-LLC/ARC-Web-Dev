@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout
+  title="Contact Us | AgileRadioCom"
+  description="Contact AgileRadioCom — schedule a demo, ask about our O-RAN or SDR products, or explore partnership opportunities."
+  bodyClass="bg-arc-dark text-white font-sans antialiased"
+>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     PAGE HERO BANNER
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="relative pt-16 pb-16 bg-arc-dark overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-arc-accent/5 blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-accent/30 to-transparent"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-3" data-aos="fade-down">Reach Out</p>
+    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-5" data-aos="fade-up" data-aos-delay="80">
+      Get in Touch with<br/><span class="text-arc-accent">AgileRadioCom</span>
+    </h1>
+    <p class="text-arc-muted text-lg max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="160">
+      We are ready to assist you with your wireless communication needs. Whether you have a question,
+      a partnership inquiry, or need support with our O-RAN solutions — don't hesitate to contact us.
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     CONTACT LAYOUT — form (left, wider) + info panel (right) on desktop
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-20 bg-arc-navy">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-blue/30 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+
+      <!-- CONTACT FORM (3 of 5 cols on desktop) -->
+      <div class="lg:col-span-3" data-aos="fade-right">
+        <h2 class="font-display text-2xl font-bold text-white mb-8">Send Us a Message</h2>
+
+        <form id="contact-form" class="space-y-5" novalidate>
+
+          <!-- Name row: first + last side by side -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="form-group">
+              <label for="first-name" class="form-label">First Name</label>
+              <input type="text" id="first-name" name="first-name" placeholder="Jane"
+                     class="form-input" required autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="last-name" class="form-label">Last Name</label>
+              <input type="text" id="last-name" name="last-name" placeholder="Doe"
+                     class="form-input" required autocomplete="family-name" />
+            </div>
+          </div>
+
+          <!-- Email address -->
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com"
+                   class="form-input" required autocomplete="email" />
+          </div>
+
+          <!-- Company / Organisation -->
+          <div class="form-group">
+            <label for="company" class="form-label">Company Name <span class="text-arc-muted/50">(optional)</span></label>
+            <input type="text" id="company" name="company" placeholder="Acme Corp"
+                   class="form-input" autocomplete="organization" />
+          </div>
+
+          <!-- Subject / inquiry type -->
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Demo request / Product inquiry / Partnership"
+                   class="form-input" required />
+          </div>
+
+          <!-- Message body -->
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" rows="6"
+                      placeholder="Tell us about your project and how we can help..."
+                      class="form-input resize-none" required></textarea>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit"
+                  class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-arc-accent text-arc-dark font-bold text-base hover:bg-white active:scale-95 transition-all duration-200 shadow-lg shadow-arc-accent/20">
+            Send Message
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+            </svg>
+          </button>
+
+          <!-- Form feedback message (shown by JS after submit attempt) -->
+          <div id="form-status" class="hidden mt-4 text-sm font-medium text-center py-3 px-4 rounded-xl" role="alert" aria-live="polite"></div>
+
+        </form>
+      </div>
+
+      <!-- INFO PANEL (2 of 5 cols on desktop) -->
+      <div class="lg:col-span-2 flex flex-col gap-5" data-aos="fade-left">
+
+        <!-- Contact details card -->
+        <div class="rounded-2xl border border-arc-blue/40 bg-arc-dark p-6">
+          <h3 class="font-display font-bold text-white text-lg mb-5">Contact Details</h3>
+
+          <!-- General email -->
+          <div class="flex items-start gap-4 mb-5">
+            <div class="w-10 h-10 rounded-lg bg-arc-accent/10 border border-arc-accent/20 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-arc-muted/70 text-xs uppercase tracking-wide mb-0.5">General Inquiries</p>
+              <a href="mailto:agileradiocom@gmail.com" class="text-white text-sm hover:text-arc-accent transition-colors">agileradiocom@gmail.com</a>
+            </div>
+          </div>
+
+          <!-- CEO direct email -->
+          <div class="flex items-start gap-4 mb-5">
+            <div class="w-10 h-10 rounded-lg bg-arc-accent/10 border border-arc-accent/20 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-arc-muted/70 text-xs uppercase tracking-wide mb-0.5">Direct — CEO</p>
+              <a href="mailto:sisay@agileradiocom.com" class="text-white text-sm hover:text-arc-accent transition-colors">sisay@agileradiocom.com</a>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-arc-accent/10 border border-arc-accent/20 flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-arc-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-arc-muted/70 text-xs uppercase tracking-wide mb-0.5">Phone</p>
+              <a href="tel:+14708005412" class="text-white text-sm hover:text-arc-accent transition-colors">(470) 800-5412</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand tagline card -->
+        <div class="rounded-2xl border border-arc-accent/20 bg-gradient-to-br from-arc-accent/5 to-arc-dark/80 p-6">
+          <p class="font-display font-bold text-white text-lg mb-2">
+            Innovative SDR Solutions<br/>for Your Business
+          </p>
+          <p class="text-arc-muted text-sm leading-relaxed">
+            Whether you need a quick demo or a full deployment consultation, our team is ready to
+            help you find the right wireless solution for your mission.
+          </p>
+          <a href="/products" class="inline-flex items-center gap-1.5 mt-4 text-arc-accent text-sm font-semibold hover:text-white transition-colors">
+            Browse our products →
+          </a>
+        </div>
+
+        <!-- Social links card -->
+        <div class="rounded-2xl border border-arc-blue/40 bg-arc-dark p-6">
+          <p class="text-arc-muted/70 text-xs uppercase tracking-widest mb-4">Follow Us</p>
+          <div class="flex gap-3">
+            <a href="https://x.com/Agileradiocom" class="social-icon" aria-label="AgileRadioCom on Twitter/X" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61562841189659" class="social-icon" aria-label="AgileRadioCom on Facebook" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/agileradiocom-llc/posts/?feedView=all" class="social-icon" aria-label="AgileRadioCom on LinkedIn" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@AGILERADIOCOMLLC" class="social-icon" aria-label="AgileRadioCom on YouTube" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /info panel -->
+    </div><!-- /grid -->
+  </div>
+</section>
+
+</Layout>

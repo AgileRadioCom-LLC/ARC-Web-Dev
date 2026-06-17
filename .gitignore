@@ -1,0 +1,9 @@
+# NPM Packages
+package-lock.json
+node_modules/
+
+# Build output
+dist/
+
+# Astro
+.astro/

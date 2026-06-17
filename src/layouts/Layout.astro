@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  bodyClass?: string;
+  bodyStyle?: string;
+}
+
+const {
+  title,
+  description = 'AgileRadioCom — AI-driven ArcSynerCom™ platform for ultra-reliable wireless control of drones and robotic fleets.',
+  bodyClass = 'text-white font-sans antialiased',
+  bodyStyle,
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="icon" href="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2025/10/cropped-Update-the-AgileRadi.png?fit=270%2C270&ssl=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</head>
+<body class={bodyClass} style={bodyStyle}>
+  <Navbar />
+  <slot />
+  <Footer />
+  <script is:inline src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script is:inline src="/js/main.js"></script>
+</body>
+</html>
