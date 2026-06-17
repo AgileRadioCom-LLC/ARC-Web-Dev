@@ -1,0 +1,38 @@
+name: Deploy to Bluehost via SSH
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy via SFTP
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Pull the latest code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up the SSH key from GitHub Secrets
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/bluehost_deploy
+          chmod 600 ~/.ssh/bluehost_deploy
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      # Step 3: Deploy files to Bluehost via rsync over SSH
+      - name: Deploy via rsync
+        run: |
+          rsync -avzr --delete \
+            -e "ssh -i ~/.ssh/bluehost_deploy -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no" \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='node_modules/' \
+            --exclude='.env' \
+            --exclude='.gitignore' \
+            --exclude='package*.json' \
+            --exclude='README.md' \
+            ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/public_html/
