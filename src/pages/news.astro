@@ -79,7 +79,7 @@ function youTubeId(embedUrl: string): string {
           spectrum denial, GNSS jamming vulnerabilities, and the case for explicit timing/reliability
           contracts with adaptive closed-loop systems.
         </p>
-        <a href="#" class="inline-flex items-center gap-2 text-arc-accent font-semibold text-sm hover:text-white transition-colors">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfWEQ4k5gsMw5KtrgF0MBY8GLe_5YNaUCBPGquGEVo81lyA-Q/viewform" target="_blank" class="inline-flex items-center gap-2 text-arc-accent font-semibold text-sm hover:text-white transition-colors">
           Download the full paper
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
@@ -138,13 +138,30 @@ function youTubeId(embedUrl: string): string {
       ))}
     </div>
 
-    <!-- Stay in touch strip -->
-    <div class="mt-16 rounded-2xl border border-arc-accent/20 bg-arc-navy p-8 md:p-10 text-center" data-aos="fade-up">
-      <h3 class="font-display text-2xl font-bold text-white mb-3">Stay in the Loop</h3>
-      <p class="text-arc-muted mb-6 max-w-md mx-auto">Get the latest AgileRadioCom news and product updates delivered straight to your inbox.</p>
-      <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-arc-accent text-arc-dark font-bold hover:bg-white transition-colors">
-        Contact Us to Subscribe
-      </a>
+    <!-- Subscribe strip -->
+    <div class="mt-16 rounded-2xl border border-arc-accent/20 bg-arc-navy p-8 md:p-10" data-aos="fade-up">
+      <div class="max-w-xl mx-auto text-center">
+        <h3 class="font-display text-2xl font-bold text-white mb-2">Stay in the Loop</h3>
+        <p class="text-arc-muted mb-6">Get the latest AgileRadioCom news and product updates delivered straight to your inbox.</p>
+      </div>
+
+      <form id="subscribe-form" novalidate class="max-w-xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+          <input type="text" id="sub-first" name="firstName" placeholder="First name"
+                 class="form-input" required autocomplete="given-name" />
+          <input type="text" id="sub-last" name="lastName" placeholder="Last name"
+                 class="form-input" required autocomplete="family-name" />
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input type="email" id="sub-email" name="email" placeholder="your@email.com"
+                 class="form-input flex-1" required autocomplete="email" />
+          <button type="submit"
+                  class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-arc-accent text-arc-dark font-bold hover:bg-white transition-colors whitespace-nowrap">
+            Subscribe
+          </button>
+        </div>
+        <div id="sub-status" class="hidden mt-3 text-sm font-medium text-center py-2 px-4 rounded-xl" role="alert" aria-live="polite"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -687,6 +704,61 @@ document.addEventListener('DOMContentLoaded', function () {
       closeVideoModal();
     }
   });
+
+  /* ══════════════════════════════════════════════════════════
+     SUBSCRIBE FORM
+  ══════════════════════════════════════════════════════════ */
+  var subForm   = document.getElementById('subscribe-form');
+  var subStatus = document.getElementById('sub-status');
+
+  function showSubStatus(type, msg) {
+    if (!subStatus) return;
+    subStatus.className = type === 'success' ? 'status-success mt-3 text-sm font-medium text-center py-2 px-4 rounded-xl'
+                                             : 'status-error mt-3 text-sm font-medium text-center py-2 px-4 rounded-xl';
+    subStatus.textContent = msg;
+    if (type === 'success') {
+      window.setTimeout(function () { subStatus.className = 'hidden'; subStatus.textContent = ''; }, 6000);
+    }
+  }
+
+  if (subForm) {
+    subForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var firstName = subForm.querySelector('#sub-first').value.trim();
+      var lastName  = subForm.querySelector('#sub-last').value.trim();
+      var email     = subForm.querySelector('#sub-email').value.trim();
+      var emailRe   = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      var btn       = subForm.querySelector('button[type="submit"]');
+
+      if (!firstName || !lastName) { showSubStatus('error', 'Please enter your first and last name.'); return; }
+      if (!email || !emailRe.test(email)) { showSubStatus('error', 'Please enter a valid email address.'); return; }
+
+      btn.disabled = true;
+      btn.textContent = 'Subscribing…';
+
+      fetch('/subscribe.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName: firstName, lastName: lastName, email: email }),
+      })
+        .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+        .then(function (r) {
+          if (r.ok && r.data.success) {
+            showSubStatus('success', '✓ You\'re subscribed! We\'ll keep you in the loop.');
+            subForm.reset();
+          } else {
+            showSubStatus('error', r.data.error || 'Something went wrong — please try again.');
+          }
+        })
+        .catch(function () {
+          showSubStatus('error', 'Network error — please try again.');
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Subscribe';
+        });
+    });
+  }
 
 });
 </script>
