@@ -26,7 +26,7 @@
       "tagStyle": "accent",
       "date": "2026-01-01",
       "dateLabel": "2026",
-      "images": ["images/news/techconnect-1.png", "images/news/techconnect.png"],
+      "images": ["/images/news/techconnect-1.png", "/images/news/techconnect.png"],
       "description": "ArcSynerCom™ has been selected for the Space, Defense, and Mobility track — reviewed by experts from Lockheed Martin, BAE Systems, and ATI — for its mission-resilient performance in contested and GPS-degraded environments. This recognition opens doors to technical briefings, demonstrations, and collaboration opportunities across the defense and mobility ecosystem.",
       "link": "https://www.techconnectworld.com/World2026/sym/#W6.00",
       "linkLabel": "Read more"
@@ -40,7 +40,7 @@
       "tagStyle": "blue",
       "date": "2026-01-01",
       "dateLabel": "2026",
-      "images": ["images/news/ceg-ai-3.png", "images/news/ceg-ai.png"],
+      "images": ["/images/news/ceg-ai-3.png", "/images/news/ceg-ai.png"],
       "description": "AgileRadioCom is proud to be highlighted in the Center for Economic Growth's latest report on AI startups driving innovation in the Capital Region. The article spotlights companies securing major deals, launching new platforms, and scaling rapidly, and AgileRadioCom is recognized for advancing mission-critical AI-driven communications and sensing technologies.",
       "link": "https://www.ceg.org/articles/ai-momentum-startups-secure-big-deals-launch-new-platforms-and-scale-up/",
       "linkLabel": "Read more"
@@ -54,7 +54,7 @@
       "tagStyle": "gold",
       "date": "2025-01-01",
       "dateLabel": "2025",
-      "images": ["images/news/eris-badge.png"],
+      "images": ["/images/news/eris-badge.png"],
       "description": "Our pitch on \"Dynamically Reconfigurable Hyper-Wideband Antennas for Mission-Critical Spectrum Agility\" earned recognition among vetted innovators on the DARPA ERIS Marketplace, placing AgileRadioCom among awardable solutions and opening a direct path to government procurement via darpaconnect.com/eris.",
       "link": "#",
       "linkLabel": "Read more"
