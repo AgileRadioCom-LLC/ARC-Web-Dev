@@ -12,3 +12,8 @@ This repository holds the code to the public website hosted on the domain agiler
 ``` bash
 npm install
 ```
+
+2. Run a local instance of the web page at the root directory as well `~/ARC-Web-Dev`
+``` bash
+npm run dev -- --host
+```

@@ -59,42 +59,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ────────────────────────────────────────────────────────────────────────
      3. ACTIVE NAV LINK HIGHLIGHT
-     Uses IntersectionObserver to watch each major section and marks the
-     corresponding .nav-link as .active when that section is in view.
+     Marks the nav link whose href matches the current page path.
   ──────────────────────────────────────────────────────────────────────────*/
-  const sections      = document.querySelectorAll('section[id]');
-  const navLinks      = document.querySelectorAll('.nav-link');
-  const mobileLinks   = document.querySelectorAll('.mobile-nav-link');
+  const navLinks    = document.querySelectorAll('.nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const currentPath = window.location.pathname;
 
-  function setActiveLink(id) {
-    /* Remove active from all desktop and mobile links */
-    navLinks.forEach(link => link.classList.remove('active'));
-    mobileLinks.forEach(link => link.classList.remove('active'));
-
-    /* Add active to matching links */
-    navLinks.forEach(link => {
-      if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
-    });
-    mobileLinks.forEach(link => {
-      if (link.getAttribute('href') === `#${id}`) link.classList.add('active');
+  function applyActiveLinks(links) {
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      const active = href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+      link.classList.toggle('active', active);
     });
   }
 
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveLink(entry.target.id);
-        }
-      });
-    },
-    {
-      rootMargin: '-30% 0px -60% 0px', /* trigger when section is ~30% into viewport */
-      threshold: 0,
-    }
-  );
-
-  sections.forEach(section => sectionObserver.observe(section));
+  applyActiveLinks(navLinks);
+  applyActiveLinks(mobileLinks);
 
 
   /* ────────────────────────────────────────────────────────────────────────

@@ -10,7 +10,7 @@ const isActive = (path: string) =>
 
       <!-- Logo -->
       <a href="/" class="flex items-center gap-3" aria-label="AgileRadioCom Home">
-        <img src="https://i0.wp.com/agileradiocom.com/wp-content/uploads/2025/03/Update-the-AgileRadi.png?fit=1024%2C1024&ssl=1" alt="AgileRadioCom logo" class="h-14 md:h-20 w-auto object-contain"
+        <img src="/images/arc-logo.png" alt="AgileRadioCom logo" class="h-14 md:h-20 w-auto object-contain"
              loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
         <span class="hidden items-center text-xl font-display font-black">
           <span class="text-arc-accent">ARC</span><span class="text-white">RadioCom</span>
@@ -49,11 +49,11 @@ const isActive = (path: string) =>
     <!-- Mobile dropdown -->
     <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out" aria-hidden="true">
       <ul class="flex flex-col gap-1 pb-4 text-sm font-medium text-arc-muted border-t border-arc-blue/30 mt-2 pt-4">
-        <li><a href="/"         class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Home</a></li>
-        <li><a href="/about"    class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">About Us</a></li>
-        <li><a href="/products" class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Our Products</a></li>
-        <li><a href="/news"     class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">News &amp; Updates</a></li>
-        <li><a href="/contact"  class="mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors">Contact Us</a></li>
+        <li><a href="/"         class={`mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors ${isActive('/') ? 'text-arc-accent bg-arc-navy' : ''}`}>Home</a></li>
+        <li><a href="/about"    class={`mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors ${isActive('/about') ? 'text-arc-accent bg-arc-navy' : ''}`}>About Us</a></li>
+        <li><a href="/products" class={`mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors ${isActive('/products') ? 'text-arc-accent bg-arc-navy' : ''}`}>Our Products</a></li>
+        <li><a href="/news"     class={`mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors ${isActive('/news') ? 'text-arc-accent bg-arc-navy' : ''}`}>News &amp; Updates</a></li>
+        <li><a href="/contact"  class={`mobile-nav-link block px-3 py-2.5 rounded-lg hover:bg-arc-navy hover:text-arc-accent transition-colors ${isActive('/contact') ? 'text-arc-accent bg-arc-navy' : ''}`}>Contact Us</a></li>
         <li class="pt-2">
           <a href="/contact" class="block text-center px-5 py-2.5 rounded-full bg-arc-accent text-arc-dark font-semibold hover:bg-white transition-colors">Schedule a Demo</a>
         </li>
