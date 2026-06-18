@@ -1,0 +1,96 @@
+{
+  "articles": [
+    {
+      "_note": "TEMPLATE — copy this block to create a new article card. Set visible: true to publish. Delete _note from real entries.",
+      "visible": false,
+      "id": "REQUIRED | unique slug, no spaces — e.g. 'my-article-2026'",
+      "title": "REQUIRED | headline shown on the card overlay and in the modal",
+      "tag": "REQUIRED | short badge label — e.g. 'Award', 'Feature', 'Recognition', 'Milestone', 'Announcement'",
+      "tagStyle": "REQUIRED | badge color — one of: 'accent' (green)  |  'blue'  |  'gold'",
+      "date": "REQUIRED | ISO 8601 date for the <time> element — e.g. '2026-06-01'",
+      "dateLabel": "REQUIRED | human-readable date shown in the modal — e.g. 'June 2026'",
+      "images": [
+        "REQUIRED | at least one image path relative to /public — e.g. 'images/news/my-image.jpg'",
+        "OPTIONAL | add more paths here for a carousel — each extra path adds a slide"
+      ],
+      "description": "REQUIRED | full article text shown in the modal when the card is clicked",
+      "link": "OPTIONAL | URL for the Read-more button — use '#' as a placeholder until ready",
+      "linkLabel": "OPTIONAL | button label — defaults to 'Read more' if omitted"
+    },
+
+    {
+      "visible": true,
+      "id": "techconnect",
+      "title": "AgileRadioCom Selected for the 2026 TechConnect Innovation Spotlight!",
+      "tag": "Award",
+      "tagStyle": "accent",
+      "date": "2026-01-01",
+      "dateLabel": "2026",
+      "images": ["images/news/techconnect-1.png", "images/news/techconnect.png"],
+      "description": "ArcSynerCom™ has been selected for the Space, Defense, and Mobility track — reviewed by experts from Lockheed Martin, BAE Systems, and ATI — for its mission-resilient performance in contested and GPS-degraded environments. This recognition opens doors to technical briefings, demonstrations, and collaboration opportunities across the defense and mobility ecosystem.",
+      "link": "https://www.techconnectworld.com/World2026/sym/#W6.00",
+      "linkLabel": "Read more"
+    },
+
+    {
+      "visible": true,
+      "id": "ceg",
+      "title": "AgileRadioCom Featured in CEG's AI Momentum Report",
+      "tag": "Feature",
+      "tagStyle": "blue",
+      "date": "2026-01-01",
+      "dateLabel": "2026",
+      "images": ["images/news/ceg-ai-3.png", "images/news/ceg-ai.png"],
+      "description": "AgileRadioCom is proud to be highlighted in the Center for Economic Growth's latest report on AI startups driving innovation in the Capital Region. The article spotlights companies securing major deals, launching new platforms, and scaling rapidly, and AgileRadioCom is recognized for advancing mission-critical AI-driven communications and sensing technologies.",
+      "link": "https://www.ceg.org/articles/ai-momentum-startups-secure-big-deals-launch-new-platforms-and-scale-up/",
+      "linkLabel": "Read more"
+    },
+
+    {
+      "visible": false,
+      "id": "darpa",
+      "title": "AgileRadioCom Solution Recognized as Awardable by DARPA ERIS Marketplace",
+      "tag": "Recognition",
+      "tagStyle": "gold",
+      "date": "2025-01-01",
+      "dateLabel": "2025",
+      "images": ["images/news/eris-badge.png"],
+      "description": "Our pitch on \"Dynamically Reconfigurable Hyper-Wideband Antennas for Mission-Critical Spectrum Agility\" earned recognition among vetted innovators on the DARPA ERIS Marketplace, placing AgileRadioCom among awardable solutions and opening a direct path to government procurement via darpaconnect.com/eris.",
+      "link": "#",
+      "linkLabel": "Read more"
+    }
+  ],
+
+  "videos": [
+    {
+      "_note": "TEMPLATE — copy this block to add a new video card. Set visible: true to publish. Delete _note from real entries.",
+      "visible": false,
+      "id": "REQUIRED | unique slug — e.g. 'demo-day-2024'",
+      "title": "REQUIRED | shown on the card and as the modal header",
+      "tag": "REQUIRED | short badge label — e.g. 'Demo Day', '2025 Demo', 'DARPA ERIS'",
+      "tagStyle": "REQUIRED | badge color — one of: 'accent' (green)  |  'blue'  |  'gold'",
+      "embedUrl": "REQUIRED | YouTube embed URL — convert watch URL: youtube.com/watch?v=ID → youtube.com/embed/ID (add ?start=N for a timestamp)",
+      "description": "OPTIONAL | short caption shown below the title on the card"
+    },
+
+    {
+      "visible": true,
+      "id": "demo-day-mvp",
+      "title": "MVP Demo Day",
+      "tag": "Demo Day",
+      "tagStyle": "accent",
+      "embedUrl": "https://www.youtube.com/embed/jKg0qOCwzxk?start=36&rel=0",
+      "description": "AgileRadioCom initial demonstration showcase."
+    },
+
+    {
+      "visible": true,
+      "id": "demo-2025",
+      "title": "5th Demo — 2025 Highlights",
+      "tag": "2025 Demo",
+      "tagStyle": "blue",
+      "embedUrl": "https://www.youtube.com/embed/67JTGnXDUHg?rel=0",
+      "description": "Fifth successive demonstration of the ArcSynerCom™ platform."
+    }
+  ]
+}

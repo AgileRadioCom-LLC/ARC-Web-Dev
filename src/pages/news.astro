@@ -1,9 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import newsData from '../data/news.json';
+const articlesData = (newsData as any).articles;
+const videosData   = (newsData as any).videos;
+
+function youTubeId(embedUrl: string): string {
+  const m = embedUrl.match(/\/embed\/([^?&]+)/);
+  return m ? m[1] : '';
+}
 ---
 <Layout
   title="News &amp; Updates | AgileRadioCom"
-  description="AgileRadioCom news and updates — latest announcements, research milestones, and product launches."
+  description="Stay updated on AgileRadioCom's latest innovations, partnerships, and milestones."
   bodyClass="bg-arc-dark text-white font-sans antialiased"
 >
 
@@ -13,21 +21,21 @@ import Layout from '../layouts/Layout.astro';
 <section class="relative pt-16 pb-16 bg-arc-dark overflow-hidden">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-arc-accent/5 blur-3xl pointer-events-none"></div>
   <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-arc-accent/30 to-transparent"></div>
-
   <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-3" data-aos="fade-down">Latest</p>
     <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-5" data-aos="fade-up" data-aos-delay="80">
-      News &amp; <span class="text-arc-accent">Updates</span>
+      Latest News from <span class="text-arc-accent">AgileRadioCom</span>
     </h1>
     <p class="text-arc-muted text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="160">
-      Announcements, research milestones, and product launches from the AgileRadioCom team.
+      Stay updated on our innovations, partnerships, and milestones.
     </p>
   </div>
 </section>
 
 
 <!-- ════════════════════════════════════════════════════════════════════════
-     FEATURED ARTICLE — top story in a wide two-column card
+     FEATURED ARTICLE — White Paper
+     Images: images/news/whitepaper-1.png  whitepaper-2.png  whitepaper-3.png
 ════════════════════════════════════════════════════════════════════════════ -->
 <section class="py-16 bg-arc-navy">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,32 +45,43 @@ import Layout from '../layouts/Layout.astro';
       <div class="flex-1 h-px bg-arc-blue/30"></div>
     </div>
 
-    <!-- Wide featured card: image left, text right on desktop -->
-    <article class="news-card group grid grid-cols-1 lg:grid-cols-2 rounded-2xl border border-arc-accent/30 overflow-hidden hover:border-arc-accent/60 transition-all duration-300"
-             data-aos="fade-up">
-      <div class="h-64 lg:h-auto overflow-hidden bg-arc-dark">
-        <img src="images/news-featured.jpg" alt="ArcSynerCom platform achieves sub-microsecond timing in field tests"
-             class="w-full h-full object-cover opacity-75 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy"
-             onerror="this.parentElement.classList.add('news-img-placeholder')" />
+    <article class="news-card grid grid-cols-1 lg:grid-cols-2 rounded-2xl border border-arc-accent/30 overflow-hidden" data-aos="fade-up">
+      <div class="h-64 lg:h-auto news-carousel">
+        <div class="carousel-track">
+          <img src="images/news/whitepaper-1.png" alt="White paper slide 1" class="carousel-slide" loading="lazy" />
+          <img src="images/news/whitepaper-2.png" alt="White paper slide 2" class="carousel-slide" loading="lazy" />
+          <img src="images/news/whitepaper-3.png" alt="White paper slide 3" class="carousel-slide" loading="lazy" />
+        </div>
+        <button class="carousel-arrow carousel-prev" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="carousel-arrow carousel-next" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <button class="carousel-toggle" aria-label="Pause slideshow">
+          <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          <svg class="play-icon hidden" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+        <div class="carousel-dots"></div>
       </div>
+
       <div class="p-8 lg:p-10 flex flex-col justify-center">
         <div class="flex items-center gap-3 mb-4">
-          <span class="tag tag-accent">Product Launch</span>
-          <time class="text-arc-muted/60 text-xs" datetime="2026-05-15">May 2026</time>
+          <span class="tag tag-accent">White Paper</span>
+          <time class="text-arc-muted/60 text-xs" datetime="2026-01-01">2026</time>
         </div>
-        <h2 class="font-display text-2xl font-bold text-white mb-3 group-hover:text-arc-accent transition-colors leading-snug">
-          ArcSynerCom™ Platform Achieves Sub-Microsecond Timing in Field Tests
+        <h2 class="font-display text-2xl font-bold text-white mb-3 leading-snug">
+          AgileRadioCom Publishes White Paper: "Why Wireless Fails First"
         </h2>
         <p class="text-arc-muted leading-relaxed mb-6">
-          Our deterministic edge node demonstrates breakthrough precision timing synchronization
-          for UAV swarm coordination in challenging RF environments. The milestone paves the way for
-          large-scale autonomous drone deployments across defense and industrial sectors.
+          Our latest white paper examines why wireless communications frequently represent the initial
+          failure point in autonomous and connected systems — covering wireless latency under contention,
+          spectrum denial, GNSS jamming vulnerabilities, and the case for explicit timing/reliability
+          contracts with adaptive closed-loop systems.
         </p>
         <a href="#" class="inline-flex items-center gap-2 text-arc-accent font-semibold text-sm hover:text-white transition-colors">
-          Read full article
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          Download the full paper
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
       </div>
     </article>
@@ -71,7 +90,8 @@ import Layout from '../layouts/Layout.astro';
 
 
 <!-- ════════════════════════════════════════════════════════════════════════
-     ALL ARTICLES GRID — 3-column responsive grid
+     ALL ARTICLES GRID — generated from src/data/news.json → articles[]
+     To add a new card: add an entry to news.json. No template changes needed.
 ════════════════════════════════════════════════════════════════════════════ -->
 <section class="py-16 bg-arc-dark">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,158 +102,593 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-
-      <!-- Article 1 -->
-      <article class="news-card group" data-aos="fade-up" data-aos-delay="0">
-        <div class="h-48 overflow-hidden rounded-t-2xl bg-arc-navy">
-          <img src="images/news-1.jpg" alt="AgileRadioCom joins O-RAN Alliance"
-               class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy"
-               onerror="this.parentElement.classList.add('news-img-placeholder')" />
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="tag tag-blue">Partnership</span>
-            <time class="text-arc-muted/60 text-xs" datetime="2026-04-10">April 2026</time>
+      {articlesData.filter((a: any) => a.visible === true).map((article: any, index: number) => (
+        <article
+          class="news-card-article"
+          data-index={index.toString()}
+          data-aos="fade-up"
+          data-aos-delay={String((index % 3) * 80)}
+          aria-label={`Open article: ${article.title}`}
+        >
+          <!-- Carousel (JS auto-hides controls when only 1 image) -->
+          <div class="news-carousel">
+            <div class="carousel-track">
+              {article.images.map((src: string, i: number) => (
+                <img src={src} alt={`${article.title} – image ${i + 1}`} class="carousel-slide" loading="lazy" />
+              ))}
+            </div>
+            <button class="carousel-arrow carousel-prev" aria-label="Previous slide">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="carousel-arrow carousel-next" aria-label="Next slide">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+            <button class="carousel-toggle" aria-label="Pause slideshow">
+              <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+              <svg class="play-icon hidden" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </button>
+            <div class="carousel-dots"></div>
           </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-arc-accent transition-colors leading-snug">
-            AgileRadioCom Joins O-RAN Alliance to Advance Open RAN Innovation
-          </h3>
-          <p class="text-arc-muted text-sm leading-relaxed line-clamp-3">
-            Joining the O-RAN Alliance underscores our commitment to open, standards-based wireless
-            architectures that enable true multi-vendor interoperability across 5G/6G networks.
-          </p>
-          <a href="#" class="inline-flex items-center gap-1.5 mt-4 text-arc-accent text-xs font-semibold hover:text-white transition-colors">Read more →</a>
-        </div>
-      </article>
 
-      <!-- Article 2 -->
-      <article class="news-card group" data-aos="fade-up" data-aos-delay="80">
-        <div class="h-48 overflow-hidden rounded-t-2xl bg-arc-navy">
-          <img src="images/news-2.jpg" alt="ArcSecureCom jam-resistant field test"
-               class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy"
-               onerror="this.parentElement.classList.add('news-img-placeholder')" />
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="tag tag-gold">Research</span>
-            <time class="text-arc-muted/60 text-xs" datetime="2026-03-22">March 2026</time>
+          <!-- Title overlay — sits above the image, passes click-through to card -->
+          <div class="article-title-bar">
+            <h3>{article.title}</h3>
           </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-arc-accent transition-colors leading-snug">
-            ArcSecureCom™ Demonstrates Jam-Resistant Comms in Multi-Domain Test
-          </h3>
-          <p class="text-arc-muted text-sm leading-relaxed line-clamp-3">
-            Our military-grade SDR platform successfully maintained secure communications under
-            aggressive electronic warfare jamming scenarios across contested spectrum.
-          </p>
-          <a href="#" class="inline-flex items-center gap-1.5 mt-4 text-arc-accent text-xs font-semibold hover:text-white transition-colors">Read more →</a>
-        </div>
-      </article>
+        </article>
+      ))}
+    </div>
 
-      <!-- Article 3 -->
-      <article class="news-card group" data-aos="fade-up" data-aos-delay="160">
-        <div class="h-48 overflow-hidden rounded-t-2xl bg-arc-navy">
-          <img src="images/news-3.jpg" alt="ArcSafeLink IoT safety validation"
-               class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy"
-               onerror="this.parentElement.classList.add('news-img-placeholder')" />
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="tag tag-blue">Product</span>
-            <time class="text-arc-muted/60 text-xs" datetime="2026-02-14">February 2026</time>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-arc-accent transition-colors leading-snug">
-            ArcSafeLink™ Certified for IEC 62280 Railway Safety Applications
-          </h3>
-          <p class="text-arc-muted text-sm leading-relaxed line-clamp-3">
-            ArcSafeLink's bounded latency and wire-like wireless reliability now meet stringent IEC 62280
-            requirements for safety-critical railway signalling communications.
-          </p>
-          <a href="#" class="inline-flex items-center gap-1.5 mt-4 text-arc-accent text-xs font-semibold hover:text-white transition-colors">Read more →</a>
-        </div>
-      </article>
-
-      <!-- Article 4 -->
-      <article class="news-card group" data-aos="fade-up" data-aos-delay="0">
-        <div class="h-48 overflow-hidden rounded-t-2xl bg-arc-navy">
-          <img src="images/news-4.jpg" alt="ArcAeroConnect NTN satellite integration"
-               class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy"
-               onerror="this.parentElement.classList.add('news-img-placeholder')" />
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="tag tag-accent">Milestone</span>
-            <time class="text-arc-muted/60 text-xs" datetime="2026-01-30">January 2026</time>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-arc-accent transition-colors leading-snug">
-            ArcAeroConnect™ Successfully Integrates NTN Satellite Link for Drone Swarms
-          </h3>
-          <p class="text-arc-muted text-sm leading-relaxed line-clamp-3">
-            Our aerospace platform achieves seamless Non-Terrestrial Network integration, enabling
-            coordinated drone swarm operations beyond line-of-sight via satellite relay.
-          </p>
-          <a href="#" class="inline-flex items-center gap-1.5 mt-4 text-arc-accent text-xs font-semibold hover:text-white transition-colors">Read more →</a>
-        </div>
-      </article>
-
-      <!-- Article 5 -->
-      <article class="news-card group" data-aos="fade-up" data-aos-delay="80">
-        <div class="h-48 overflow-hidden rounded-t-2xl bg-arc-navy">
-          <img src="images/news-5.jpg" alt="Digital twin REST API integration"
-               class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy"
-               onerror="this.parentElement.classList.add('news-img-placeholder')" />
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="tag tag-blue">Integration</span>
-            <time class="text-arc-muted/60 text-xs" datetime="2025-12-10">December 2025</time>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-arc-accent transition-colors leading-snug">
-            ArcSynerCom™ REST API Enables Real-Time Digital Twin Synchronization
-          </h3>
-          <p class="text-arc-muted text-sm leading-relaxed line-clamp-3">
-            New REST API endpoints allow industrial operators to sync physical network state with
-            digital twin environments for predictive maintenance and simulation-driven optimization.
-          </p>
-          <a href="#" class="inline-flex items-center gap-1.5 mt-4 text-arc-accent text-xs font-semibold hover:text-white transition-colors">Read more →</a>
-        </div>
-      </article>
-
-      <!-- Article 6 -->
-      <article class="news-card group" data-aos="fade-up" data-aos-delay="160">
-        <div class="h-48 overflow-hidden rounded-t-2xl bg-arc-navy">
-          <img src="images/news-6.jpg" alt="AgileRadioCom at IEEE GLOBECOM"
-               class="w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-90 transition-all duration-500" loading="lazy"
-               onerror="this.parentElement.classList.add('news-img-placeholder')" />
-        </div>
-        <div class="p-6">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="tag tag-gold">Event</span>
-            <time class="text-arc-muted/60 text-xs" datetime="2025-11-20">November 2025</time>
-          </div>
-          <h3 class="font-display font-bold text-white text-base mb-2 group-hover:text-arc-accent transition-colors leading-snug">
-            AgileRadioCom Presents D-SDR™ Research at IEEE GLOBECOM 2025
-          </h3>
-          <p class="text-arc-muted text-sm leading-relaxed line-clamp-3">
-            Dr. Sisay Tadesse Arzo and Dr. Petro Mushidi Tshakwanda presented groundbreaking
-            deterministic SDR research at the IEEE Global Communications Conference in Cape Town.
-          </p>
-          <a href="#" class="inline-flex items-center gap-1.5 mt-4 text-arc-accent text-xs font-semibold hover:text-white transition-colors">Read more →</a>
-        </div>
-      </article>
-
-    </div><!-- /articles grid -->
-
-    <!-- Newsletter / stay-in-touch strip -->
+    <!-- Stay in touch strip -->
     <div class="mt-16 rounded-2xl border border-arc-accent/20 bg-arc-navy p-8 md:p-10 text-center" data-aos="fade-up">
       <h3 class="font-display text-2xl font-bold text-white mb-3">Stay in the Loop</h3>
-      <p class="text-arc-muted mb-6 max-w-md mx-auto">
-        Get the latest AgileRadioCom news and product updates delivered straight to your inbox.
-      </p>
+      <p class="text-arc-muted mb-6 max-w-md mx-auto">Get the latest AgileRadioCom news and product updates delivered straight to your inbox.</p>
       <a href="/contact" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-arc-accent text-arc-dark font-bold hover:bg-white transition-colors">
         Contact Us to Subscribe
       </a>
     </div>
   </div>
 </section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     VIDEO DEMOS SECTION — generated from src/data/news.json → videos[]
+     To add a video: add an entry to news.json. No template changes needed.
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-16 bg-arc-navy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex items-center gap-3 mb-10" data-aos="fade-right">
+      <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase">Highlights / Videos</p>
+      <div class="flex-1 h-px bg-arc-blue/30"></div>
+    </div>
+
+    <div class="mb-8 max-w-2xl" data-aos="fade-up">
+      <h2 class="font-display text-3xl font-bold text-white mb-3">See Our Technology in Action</h2>
+      <p class="text-arc-muted">Watch live demonstrations of AgileRadioCom's deterministic SDR platform and flagship products.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {videosData.filter((v: any) => v.visible === true).map((video: any, index: number) => {
+        const vid = youTubeId(video.embedUrl);
+        const thumbHq  = vid ? `https://img.youtube.com/vi/${vid}/hqdefault.jpg` : '';
+        const thumbMax = vid ? `https://img.youtube.com/vi/${vid}/maxresdefault.jpg` : '';
+        return (
+        <div
+          class="video-card"
+          data-video-index={index.toString()}
+          data-aos="fade-up"
+          data-aos-delay={String((index % 3) * 80)}
+          aria-label={`Watch video: ${video.title}`}
+        >
+          <div class="video-placeholder">
+            {vid ? (
+              <>
+                <img
+                  src={thumbMax}
+                  alt={`${video.title} thumbnail`}
+                  class="video-thumb"
+                  onerror={`this.src='${thumbHq}';this.onerror=function(){this.style.display='none';document.getElementById('vfb-${index}').style.display='flex';};`}
+                />
+                <div class="video-thumb-play">
+                  <div class="video-thumb-play-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,3 20,12 6,21"/></svg>
+                  </div>
+                </div>
+                <div id={`vfb-${index}`} class="video-placeholder-icon" style="display:none">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                  <span class="text-xs tracking-wider uppercase">Click to watch</span>
+                </div>
+              </>
+            ) : (
+              <div class="video-placeholder-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                <span class="text-xs tracking-wider uppercase">Click to watch</span>
+              </div>
+            )}
+          </div>
+          <div class="p-5">
+            <span class={`tag tag-${video.tagStyle} mb-3 inline-block`}>{video.tag}</span>
+            <h3 class="font-display font-bold text-white text-sm leading-snug">{video.title}</h3>
+            {video.description && <p class="text-arc-muted text-xs mt-1">{video.description}</p>}
+          </div>
+        </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<!-- Announcement section -->
+
+<section class="py-16 bg-arc-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex items-center gap-3 mb-10" data-aos="fade-right">
+      <p class="text-arc-muted text-sm font-semibold tracking-widest uppercase">Announcements</p>
+      <div class="flex-1 h-px bg-arc-blue/30"></div>
+    </div>
+
+    <div class="rounded-2xl border border-arc-blue/30 bg-arc-navy overflow-hidden" data-aos="fade-up">
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+        <div class="flex items-center justify-center p-10 lg:p-16 border-b lg:border-b-0 lg:border-r border-arc-blue/20">
+          <div class="flex flex-col items-center gap-6">
+            <img
+              src="images/news/eris-badge.png"
+              alt="Eris Badge"
+              class="w-90 h-90 object-contain rounded-xl"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <div class="w-90 h-90 rounded-xl border border-arc-blue/30 bg-arc-dark/60 items-center justify-center hidden">
+              <span class="text-arc-muted text-sm tracking-widest">Badge</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-10 lg:p-14">
+          <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-4">Announcement</p>
+          <h2 class="font-display text-3xl lg:text-4xl font-black text-white mb-5 leading-tight">
+            AgileRadioCom Solution Recognized as <span class="text-arc-accent"><i>Awardable</i></span> by DARPA ERIS Marketplace!
+          </h2>
+          <p class="text-arc-muted leading-relaxed mb-4">
+            <strong>Big Millstone:</strong> We're proud to share that our 7-minute pitch video,
+            <strong>"Dynamically Reconfigurable Hyper-Wideband Antennas for Mission-Critical Spectrum Agility,"</strong> has officially
+            been recognized as Awardable by the <strong>DARPA Expedited Research Implementation Series (ERIS) Marketplace.</strong>
+          </p>
+          <p class="text-arc-muted leading-relaxed mb-8">
+            This distinction places AgileRadioCom among a highly selective group of innovators whose solutions have undergone rigorous
+            assessment and are now available for procurement by government customers.
+          </p>
+          <p class="text-arc-muted leading-relaxed mb-4">
+            The <strong>ERIS Marketplace</strong> is a transformative digital platform designed to accelerate acquisition velocity and advance national
+             security innovation. Awardable solutions are competitively vetted and readily accessible for government buyers.
+          </p>
+          <p class="text-arc-muted leading-relaxed mb-4">
+            <strong>Government customers</strong> can now:
+          </p>
+          <ul class="list-disc list-inside text-arc-muted leading-relaxed mb-4">
+              <li>View our pitch video</li>
+              <li>Request more information or demonstrations</li>
+              <li>Initiate the procurement process via: <a href="http://www.darpaconnect.us/eris" target="_blank">www.darpaconnect.us/eris</a></li>
+          </ul>
+          <p class="text-arc-muted leading-relaxed mb-4">We are honored to contribute to next-generation defense technologies and welcome opportunities to collaborate on mission-critical capabilities.</p>
+          <a href="/contact" class="inline-flex items-center gap-2 text-arc-accent font-semibold text-sm hover:text-white transition-colors">
+            For more information or to engage with our team, please contact us.
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     NORDTECH PARTNERSHIP SECTION
+     Logo: images/news/nordtech.jpg
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="py-16 bg-arc-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="flex items-center gap-3 mb-10" data-aos="fade-right">
+      <p class="text-arc-muted text-sm font-semibold tracking-widest uppercase">Partnership</p>
+      <div class="flex-1 h-px bg-arc-blue/30"></div>
+    </div>
+
+    <div class="rounded-2xl border border-arc-blue/30 bg-arc-navy overflow-hidden" data-aos="fade-up">
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+        <div class="flex items-center justify-center p-10 lg:p-16 border-b lg:border-b-0 lg:border-r border-arc-blue/20">
+          <div class="flex flex-col items-center gap-6">
+            <img
+              src="images/news/nordtech.jpg"
+              alt="NORDTECH Group logo"
+              class="w-80 h-80 object-contain rounded-xl"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+            />
+            <div class="w-80 h-80 rounded-xl border border-arc-blue/30 bg-arc-dark/60 items-center justify-center hidden">
+              <span class="text-arc-muted text-sm tracking-widest">NORDTECH</span>
+            </div>
+            <span class="tag tag-blue">Official Member</span>
+          </div>
+        </div>
+        <div class="p-10 lg:p-14">
+          <p class="text-arc-accent text-sm font-semibold tracking-widest uppercase mb-4">Partnership Announcement</p>
+          <h2 class="font-display text-3xl lg:text-4xl font-black text-white mb-5 leading-tight">
+            Proud Member of <span class="text-arc-accent">NORDTECH!</span>
+          </h2>
+          <p class="text-arc-muted leading-relaxed mb-4">
+            AgileRadioCom is proud to announce its membership in NORDTECH, a collaborative network of
+            technology leaders driving innovation at the intersection of communications, cybersecurity,
+            and critical infrastructure.
+          </p>
+          <p class="text-arc-muted leading-relaxed mb-8">
+            This partnership unlocks new possibilities for growth, innovation, and technical excellence
+            — combining AgileRadioCom's radio systems expertise with NORDTECH's cybersecurity and
+            infrastructure capabilities to deliver comprehensive mission-critical solutions.
+          </p>
+          <a href="#" class="inline-flex items-center gap-2 text-arc-accent font-semibold text-sm hover:text-white transition-colors">
+            Learn more about NORDTECH
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     ARTICLE MODAL
+════════════════════════════════════════════════════════════════════════════ -->
+<div id="news-modal" class="news-modal-overlay" role="dialog" aria-modal="true" aria-label="Article details">
+  <div class="news-modal-panel">
+    <button class="news-modal-close" id="modal-close-btn" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="news-modal-media" id="modal-media-slot"></div>
+    <div class="news-modal-info" id="modal-info-slot"></div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     VIDEO MODAL
+════════════════════════════════════════════════════════════════════════════ -->
+<div id="video-modal" class="news-modal-overlay" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="news-modal-video-panel">
+    <button class="news-modal-close" id="video-modal-close-btn" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+    <div class="video-modal-player-wrap" id="video-modal-player"></div>
+    <div class="video-modal-title" id="video-modal-title"></div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     DATA — read by JS to populate modals
+════════════════════════════════════════════════════════════════════════════ -->
+<script is:inline type="application/json" id="arc-news-data" set:html={JSON.stringify(articlesData.filter((a: any) => a.visible === true))}></script>
+<script is:inline type="application/json" id="arc-video-data" set:html={JSON.stringify(videosData.filter((v: any) => v.visible === true))}></script>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     SCRIPTS — carousel + article modal + video modal
+════════════════════════════════════════════════════════════════════════════ -->
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ── SVG strings reused when building the modal carousel ── */
+  var SVG_PREV   = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>';
+  var SVG_NEXT   = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>';
+  var SVG_PAUSE  = '<svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+  var SVG_PLAY   = '<svg class="play-icon hidden" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>';
+
+  /* ── Read data ── */
+  var dataEl   = document.getElementById('arc-news-data');
+  var articles = dataEl ? JSON.parse(dataEl.textContent) : [];
+
+  var videoDataEl = document.getElementById('arc-video-data');
+  var videos      = videoDataEl ? JSON.parse(videoDataEl.textContent) : [];
+
+  /* ── Article modal elements ── */
+  var modalOverlay  = document.getElementById('news-modal');
+  var modalMedia    = document.getElementById('modal-media-slot');
+  var modalInfo     = document.getElementById('modal-info-slot');
+  var modalCloseBtn = document.getElementById('modal-close-btn');
+
+  /* ── Video modal elements ── */
+  var videoModal       = document.getElementById('video-modal');
+  var videoModalPlayer = document.getElementById('video-modal-player');
+  var videoModalTitle  = document.getElementById('video-modal-title');
+  var videoModalClose  = document.getElementById('video-modal-close-btn');
+
+  /* ══════════════════════════════════════════════════════════
+     CAROUSEL INITIALISER — works on any .news-carousel element
+  ══════════════════════════════════════════════════════════ */
+  function initCarousel(carousel) {
+    var track     = carousel.querySelector('.carousel-track');
+    var prevBtn   = carousel.querySelector('.carousel-prev');
+    var nextBtn   = carousel.querySelector('.carousel-next');
+    var toggleBtn = carousel.querySelector('.carousel-toggle');
+    var dotsWrap  = carousel.querySelector('.carousel-dots');
+    var pauseIcon = toggleBtn ? toggleBtn.querySelector('.pause-icon') : null;
+    var playIcon  = toggleBtn ? toggleBtn.querySelector('.play-icon')  : null;
+
+    if (!track) return;
+
+    var allSlides = Array.from(track.querySelectorAll('.carousel-slide'));
+    var slides    = [];
+    var pending   = allSlides.length;
+    if (pending === 0) return;
+
+    function init() {
+      /* hide controls for single-image carousels */
+      if (slides.length <= 1) {
+        if (prevBtn)   prevBtn.style.display   = 'none';
+        if (nextBtn)   nextBtn.style.display   = 'none';
+        if (toggleBtn) toggleBtn.style.display = 'none';
+        if (dotsWrap)  dotsWrap.style.display  = 'none';
+        return;
+      }
+
+      /* build dot indicators */
+      if (dotsWrap) {
+        slides.forEach(function (_, i) {
+          var dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          dot.addEventListener('click', function () { goTo(i); });
+          dotsWrap.appendChild(dot);
+        });
+      }
+
+      var current = 0;
+      var paused  = false;
+      var timer   = 0;
+
+      function updateDots() {
+        if (!dotsWrap) return;
+        dotsWrap.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function goTo(index) {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        updateDots();
+      }
+
+      function startTimer() {
+        clearInterval(timer);
+        timer = window.setInterval(function () { goTo(current + 1); }, 3800);
+      }
+
+      startTimer();
+
+      if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () {
+          paused = !paused;
+          if (paused) {
+            clearInterval(timer);
+            if (pauseIcon) pauseIcon.classList.add('hidden');
+            if (playIcon)  playIcon.classList.remove('hidden');
+            toggleBtn.setAttribute('aria-label', 'Resume slideshow');
+          } else {
+            startTimer();
+            if (pauseIcon) pauseIcon.classList.remove('hidden');
+            if (playIcon)  playIcon.classList.add('hidden');
+            toggleBtn.setAttribute('aria-label', 'Pause slideshow');
+          }
+        });
+      }
+    }
+
+    /* wait for each image to settle before counting slides */
+    allSlides.forEach(function (img) {
+      function check() {
+        slides.push(img);
+        pending--;
+        if (pending === 0) init();
+      }
+      if (img.complete) { check(); }
+      else {
+        img.addEventListener('load', check);
+        img.addEventListener('error', function () { img.style.opacity = '0'; check(); });
+      }
+    });
+  }
+
+  /* ── Init all carousels already in the DOM ── */
+  document.querySelectorAll('.news-carousel').forEach(initCarousel);
+
+  /* ══════════════════════════════════════════════════════════
+     ARTICLE MODAL — build media + info, open / close
+  ══════════════════════════════════════════════════════════ */
+  function buildModalMedia(images) {
+    /* single image — no carousel chrome */
+    if (images.length === 1) {
+      var img = document.createElement('img');
+      img.src = images[0];
+      img.alt = 'Article image';
+      img.className = 'modal-single-img';
+      img.loading = 'lazy';
+      return img;
+    }
+
+    /* multiple images — build a fresh carousel */
+    var wrap  = document.createElement('div');
+    wrap.className = 'news-carousel';
+
+    var track = document.createElement('div');
+    track.className = 'carousel-track';
+    images.forEach(function (src, i) {
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = 'Slide ' + (i + 1);
+      img.className = 'carousel-slide';
+      img.loading = 'lazy';
+      track.appendChild(img);
+    });
+    wrap.appendChild(track);
+
+    var prev = document.createElement('button');
+    prev.className = 'carousel-arrow carousel-prev';
+    prev.setAttribute('aria-label', 'Previous slide');
+    prev.innerHTML = SVG_PREV;
+    wrap.appendChild(prev);
+
+    var next = document.createElement('button');
+    next.className = 'carousel-arrow carousel-next';
+    next.setAttribute('aria-label', 'Next slide');
+    next.innerHTML = SVG_NEXT;
+    wrap.appendChild(next);
+
+    var toggle = document.createElement('button');
+    toggle.className = 'carousel-toggle';
+    toggle.setAttribute('aria-label', 'Pause slideshow');
+    toggle.innerHTML = SVG_PAUSE + SVG_PLAY;
+    wrap.appendChild(toggle);
+
+    var dots = document.createElement('div');
+    dots.className = 'carousel-dots';
+    wrap.appendChild(dots);
+
+    /* init after appended to DOM so layout is measurable */
+    window.requestAnimationFrame(function () { initCarousel(wrap); });
+    return wrap;
+  }
+
+  function openModal(article) {
+    if (!modalMedia || !modalInfo || !modalOverlay) return;
+
+    /* clear previous content */
+    modalMedia.innerHTML = '';
+    modalInfo.innerHTML  = '';
+
+    /* media side */
+    modalMedia.appendChild(buildModalMedia(article.images));
+
+    /* info side */
+    var tagClass = 'tag-' + (article.tagStyle || 'accent');
+    modalInfo.innerHTML =
+      '<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">' +
+        '<span class="tag ' + tagClass + '">' + article.tag + '</span>' +
+        '<time style="color:rgba(148,163,184,0.6);font-size:0.75rem">' + article.dateLabel + '</time>' +
+      '</div>' +
+      '<h2 style="font-family:var(--font-display,sans-serif);font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1rem;line-height:1.35">' +
+        article.title +
+      '</h2>' +
+      '<p style="color:#94a3b8;line-height:1.7;font-size:0.9rem;margin-bottom:1.5rem">' +
+        article.description +
+      '</p>' +
+      '<a href="' + article.link + '" target="_blank" style="display:inline-flex;align-items:center;gap:8px;color:var(--arc-accent);font-weight:600;font-size:0.875rem;text-decoration:none">' +
+        article.linkLabel +
+        ' <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>' +
+      '</a>';
+
+    document.body.style.overflow = 'hidden';
+    modalOverlay.classList.add('is-open');
+  }
+
+  function closeModal() {
+    if (!modalOverlay) return;
+    modalOverlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    window.setTimeout(function () {
+      if (!modalOverlay.classList.contains('is-open')) {
+        if (modalMedia) modalMedia.innerHTML = '';
+        if (modalInfo)  modalInfo.innerHTML  = '';
+      }
+    }, 350);
+  }
+
+  /* ── Article card click → open article modal (ignores carousel control clicks) ── */
+  document.querySelectorAll('.news-card-article').forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      var t = e.target;
+      while (t && t !== card) {
+        if (t.classList &&
+            (t.classList.contains('carousel-arrow') ||
+             t.classList.contains('carousel-toggle') ||
+             t.classList.contains('carousel-dot'))) {
+          return;
+        }
+        t = t.parentElement;
+      }
+      var index = parseInt(card.dataset.index, 10);
+      if (!isNaN(index) && articles[index]) {
+        openModal(articles[index]);
+      }
+    });
+  });
+
+  /* ── Close article modal ── */
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', function (e) {
+      if (e.target === modalOverlay) closeModal();
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     VIDEO MODAL — embed YouTube player, open / close
+  ══════════════════════════════════════════════════════════ */
+  function openVideoModal(video) {
+    if (!videoModal || !videoModalPlayer || !videoModalTitle) return;
+
+    videoModalPlayer.innerHTML =
+      '<iframe src="' + video.embedUrl + '" title="' + video.title + '" allowfullscreen ' +
+      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">' +
+      '</iframe>';
+
+    videoModalTitle.textContent = video.title;
+
+    document.body.style.overflow = 'hidden';
+    videoModal.classList.add('is-open');
+  }
+
+  function closeVideoModal() {
+    if (!videoModal) return;
+    videoModal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    /* clear iframe after fade-out so audio/video actually stops */
+    window.setTimeout(function () {
+      if (!videoModal.classList.contains('is-open')) {
+        if (videoModalPlayer) videoModalPlayer.innerHTML = '';
+        if (videoModalTitle)  videoModalTitle.textContent = '';
+      }
+    }, 350);
+  }
+
+  /* ── Video card click → open video modal ── */
+  document.querySelectorAll('.video-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var index = parseInt(card.dataset.videoIndex, 10);
+      if (!isNaN(index) && videos[index]) {
+        openVideoModal(videos[index]);
+      }
+    });
+  });
+
+  /* ── Close video modal ── */
+  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+  if (videoModal) {
+    videoModal.addEventListener('click', function (e) {
+      if (e.target === videoModal) closeVideoModal();
+    });
+  }
+
+  /* ── Escape closes whichever modal is open ── */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeModal();
+      closeVideoModal();
+    }
+  });
+
+});
+</script>
 
 </Layout>
