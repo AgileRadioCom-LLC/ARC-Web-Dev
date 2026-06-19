@@ -501,6 +501,24 @@ html {
   justify-content: center;
   overflow-y: auto;
 }
+.modal-description {
+  color: #94a3b8;
+  line-height: 1.75;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.modal-description p { margin-bottom: 0.85rem; }
+.modal-description p:last-child { margin-bottom: 0; }
+.modal-description strong, .modal-description b { color: #fff; font-weight: 600; }
+.modal-description em, .modal-description i { color: #c4d4e8; font-style: italic; }
+.modal-description ul, .modal-description ol { padding-left: 1.25rem; margin-bottom: 0.85rem; }
+.modal-description li { margin-bottom: 0.3rem; }
+.modal-description ul li { list-style-type: disc; }
+.modal-description ol li { list-style-type: decimal; }
+.modal-description h3 { color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem; margin-top: 1rem; }
+.modal-description h4 { color: #c4d4e8; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.35rem; margin-top: 0.75rem; }
+.modal-description a { color: var(--arc-accent); text-decoration: underline; }
+
 .news-modal-close {
   position: absolute;
   top: 12px;

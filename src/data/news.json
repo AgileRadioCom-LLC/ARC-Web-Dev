@@ -13,7 +13,7 @@
         "REQUIRED | at least one image path relative to /public — e.g. 'images/news/my-image.jpg'",
         "OPTIONAL | add more paths here for a carousel — each extra path adds a slide"
       ],
-      "description": "REQUIRED | full article text shown in the modal when the card is clicked",
+      "description": "REQUIRED | full article text shown in the modal. Supports Markdown: **bold**, *italic*, ## Heading, - bullet lists, 1. numbered lists, [link](url)",
       "link": "OPTIONAL | URL for the Read-more button — use '#' as a placeholder until ready",
       "linkLabel": "OPTIONAL | button label — defaults to 'Read more' if omitted"
     },
@@ -27,7 +27,7 @@
       "date": "2026-01-01",
       "dateLabel": "2026",
       "images": ["/images/news/techconnect-1.png", "/images/news/techconnect.png"],
-      "description": "ArcSynerCom™ has been selected for the Space, Defense, and Mobility track — reviewed by experts from Lockheed Martin, BAE Systems, and ATI — for its mission-resilient performance in contested and GPS-degraded environments. This recognition opens doors to technical briefings, demonstrations, and collaboration opportunities across the defense and mobility ecosystem.",
+      "description": "**Big Milestone:** We're proud to share that ArcSynerCom™, our mission-resilient communication device for UAVs and autonomous systems, has been officially selected for the **2026 TechConnect Innovation Spotlight** in the Space, Defense, and Mobility track.\n\nThis recognition places AgileRadioCom among a highly selective group of breakthrough technologies reviewed by experts from Lockheed Martin, BAE Systems, ATI, and leading national security organizations. Spotlight selections undergo competitive evaluation and represent innovations with strong dual-use potential, technical maturity, and clear impact for defense and advanced mobility missions.\n\nThe TechConnect Innovation Spotlight is one of the premier national platforms for showcasing emerging technologies that advance mission-critical capabilities across government and industry. Being selected signals ArcSynerCom™'s readiness to support next-generation autonomous systems operating in contested, congested, and GPS-degraded environments.",
       "link": "https://www.techconnectworld.com/World2026/sym/#W6.00",
       "linkLabel": "Read more"
     },
@@ -41,7 +41,7 @@
       "date": "2026-01-01",
       "dateLabel": "2026",
       "images": ["/images/news/ceg-ai-3.png", "/images/news/ceg-ai.png"],
-      "description": "AgileRadioCom is proud to be highlighted in the Center for Economic Growth's latest report on AI startups driving innovation in the Capital Region. The article spotlights companies securing major deals, launching new platforms, and scaling rapidly, and AgileRadioCom is recognized for advancing mission-critical AI-driven communications and sensing technologies.",
+      "description": "AgileRadioCom is proud to be highlighted in the Center for Economic Growth's latest report on AI startups driving innovation in the Capital Region.\n\n The article spotlights companies securing major deals, launching new platforms, and scaling rapidly, and AgileRadioCom is recognized for advancing mission-critical AI-driven communications and sensing technologies.",
       "link": "https://www.ceg.org/articles/ai-momentum-startups-secure-big-deals-launch-new-platforms-and-scale-up/",
       "linkLabel": "Read more"
     },

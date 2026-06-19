@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy via SFTP
+    name: Build and Deploy via SFTP
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +15,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up the SSH key from GitHub Secrets
+      # Step 2: Set up Node.js and install dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 3: Build the Astro site
+      - name: Build
+        run: npm run build
+
+      # Step 4: Set up the SSH key from GitHub Secrets
       - name: Setup SSH Key
         run: |
           mkdir -p ~/.ssh
@@ -23,16 +37,9 @@ jobs:
           chmod 600 ~/.ssh/bluehost_deploy
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      # Step 3: Deploy files to Bluehost via rsync over SSH
+      # Step 5: Deploy the built output to Bluehost via rsync
       - name: Deploy via rsync
         run: |
           rsync -avzr --delete \
             -e "ssh -i ~/.ssh/bluehost_deploy -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no" \
-            --exclude='.git/' \
-            --exclude='.github/' \
-            --exclude='node_modules/' \
-            --exclude='.env' \
-            --exclude='.gitignore' \
-            --exclude='package*.json' \
-            --exclude='README.md' \
-            ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/public_html/revamp/
+            ./dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/public_html/revamp/
